@@ -24,51 +24,56 @@ function validatePassword(password) {
 
 function WarnalertMassage(massage) {
   return `
-  <div class="alert-box transform transition-all duration-500 w-96 bg-orange-300 flex p-2 items-center">
-  <div class="icon mr-3">
-     <i class="fa-solid fa-circle-exclamation text-red-500 "></i>
+  <div
+  class="alert-box bg-red-300 transform transition-all duration-500 w-full rounded-md bg-red flex flex-wrap p-2 items-center justify-between">
+  <div class="alert">
+    <div class="icon flex justify-start items-center gap-1">
+      <i class="fa-solid fa-circle-exclamation text-red-500"></i>
+      <p class="text-gray-600 text-xs">${massage}</p>
+    </div>
   </div>
-  <div class="massage">
-     <p class="text-gray-600">${massage}</p>
-  </div>
+
+
+
   <div
     class="close-button place-self-end ml-3 transform transition-all cursor-pointer hover:text-orange-600 duration-300"
-    onclick="closeAlert()"
-  >
+    onclick="closeAlert()">
     <i class="fa-regular fa-circle-xmark text-red-800 "></i>
   </div>
 </div>
-
 `;
 }
 //success message
 function successalertMassage(massage) {
   return `
-  <div class="alert-box transform transition-all duration-500 w-96 bg-green-300 flex p-2 items-center">
-  <div class="icon mr-3">
-     <i class="fa-solid fa-thumbs-up text-green-800"></i>
+  <div
+  class="alert-box bg-green-300 transform transition-all duration-500 w-full rounded-md bg-red flex p-2 items-center justify-between">
+  <div class="alert">
+    <div class="icon flex justify-start items-center gap-1">
+      <i class="fa-solid fa-circle-checked text-red-500"></i>
+      <p class="text-gray-600 text-xs">${massage}</p>
+    </div>
   </div>
-  <div class="massage">
-     <p class="text-gray-600">${massage}</p>
-  </div>
+
   <div
     class="close-button place-self-end ml-3 transform transition-all cursor-pointer hover:text-orange-600 duration-300"
-    onclick="closeAlert()"
-  >
+    onclick="closeAlert()">
     <i class="fa-regular fa-circle-xmark text-red-800 "></i>
   </div>
 </div>
-
 `;
 }
+
+
+
 
 //data send to local storage
 
 function sendData(key, data) {
   let userData = [];
-  let lsData = localStorage.getItem(key)
-    ? JSON.parse(localStorage.getItem(key))
-    : null;
+  let lsData = localStorage.getItem(key) ?
+    JSON.parse(localStorage.getItem(key)) :
+    null;
   if (!lsData) {
     userData.push(data);
     localStorage.setItem(key, JSON.stringify(userData));
@@ -81,8 +86,8 @@ function sendData(key, data) {
 
 //data get from localStorage
 function getData(key) {
-  return localStorage.getItem(key)
-    ? JSON.parse(localStorage.getItem(key))
-    : false;
+  return localStorage.getItem(key) ?
+    JSON.parse(localStorage.getItem(key)) :
+    false;
 }
 

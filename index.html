@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
   <meta charset="UTF-8">
@@ -10,20 +10,90 @@
   <script src="https://kit.fontawesome.com/2ab099f38c.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-gray-800 h-screen w-screen flex justify-center items-center p-32">
+<body class="bg-gray-800 h-screen w-screen flex justify-center items-center">
 
-  <h2 class="text-white text-3xl">
+  <!-- User registration and login form -->
+  <div id="user-form" class=" border-teal-600 border rounded-md p-1">
+    <div id="msgArea">
 
-    this is student data crud application
+    </div>
+    <div id="form">
+      <!-- login form -->
+      <form autocomplete="on" class="login-form p-8 justify-center flex-col gap-3 ">
+        <div id="login-form" class="flex justify-center items-center flex-col gap-3">
+          <input
+            class="p-1 rounded-sm text-xs bg-transparent border border-teal-900 focus:outline-none focus:border-none focus:ring-2 ring-purple-900 text-white type="
+            text" name="usernameEmail" id="username" placeholder="Username or Email">
+          <input
+            class="p-1 rounded-sm text-xs bg-transparent border border-teal-900 focus:outline-none focus:border-none focus:ring-2 ring-purple-900 text-white"
+            type="password" name="password" id="log-password" placeholder="Password">
+          <!-- //password toggler -->
+          <div class="passwordtoggle justify-items-start w-full ml-8">
+            <i class="fa-solid fa-eye-slash mr-2 passwordToggle text-green-500 text-xs cursor-pointer hover:text-green-300"
+              id="passShow"></i>
 
-    <p class="text-teal-500">created by <a href="https://github.com/deveripon" target="_blank">devripon</a></p>
+            <label for="passShow" class="pr-3 text-sky-200 text-xs">Show
+              Password</label>
+          </div>
+          <!-- //password toggler -->
+          <input
+            class="bg-teal-900 transform block  mt-2 duration-500 text-xs text-white p-1 rounded-sm outline outline-teal-800 focus:bg-cyan-600 hover:bg-teal-800 "
+            type="submit" value="Go to dashboard">
+        </div>
+        <p class="text-xs mt-3 text-purple-600">no added credentials ? <a href="#"
+            class="text-teal-800 font-bold text-sm" id="set-credential" onclick="showRegForm()">Set Credentials</a>
 
-  </h2>
+        </p>
+      </form>
+      <!-- //registration form -->
+      <form autocomplete="on" class="reg-form p-8  flex justify-center items-center flex-col gap-3">
+        <input
+          class="p-1 rounded-sm text-xs bg-transparent border border-teal-900 focus:outline-none focus:border-none focus:ring-2 ring-purple-900 text-white type="
+          text" name="username" id="username" placeholder="Set Username">
+        <input
+          class="p-1 rounded-sm text-xs bg-transparent border border-teal-900 focus:outline-none focus:border-none focus:ring-2 ring-purple-900 text-white type="
+          text" name="email" id="email" placeholder="Set Email">
+        <input
+          class="p-1 rounded-sm text-xs bg-transparent border border-teal-900 focus:outline-none focus:border-none focus:ring-2 ring-purple-900 text-white"
+          type="password" name="password" id="password" placeholder="Set Password">
+        <input
+          class="p-1 rounded-sm text-xs bg-transparent border border-teal-900 focus:outline-none focus:border-none focus:ring-2 ring-purple-900 text-white"
+          type="password" name="con_pass" id="con_pass" placeholder="Confirm Password">
+
+        <!-- //password toggler -->
+        <div class="passwordtoggle justify-items-start w-full ml-8">
+          <i class="fa-solid fa-eye-slash passwordToggle mr-2 text-green-500 text-xs cursor-pointer hover:text-green-300"
+            id="passShow"></i>
+
+          <label for="passShow" class="pr-3 text-sky-200 text-xs">Show
+            Password</label>
+        </div>
+        <!-- //password toggler -->
+
+        <input
+          class="bg-teal-900 transform duration-500 text-xs text-white p-1 rounded-sm outline outline-teal-800 focus:bg-cyan-600 hover:bg-teal-800 "
+          type="submit" value="Save Credentials">
+
+        <p class="text-xs text-purple-600">already created a credentials ? <a href="#"
+            class="text-teal-800 font-bold text-sm" id="loginButton" onclick="showLoginForm()">login</a>
+        </p>
+      </form>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- User registration and login form -->
 
 
   <script src="./public/src/js/data.js"></script>
   <script src="./public/src/js/functions.js"></script>
-  <script src="./public/src/js/index.js"></script>
+  <script src="./public/src/js/login.js"></script>
 
 </body>
 
