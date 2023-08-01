@@ -80,7 +80,7 @@ loginForm.addEventListener("submit", function (e) {
   if (!varifyData) {
     msgArea.innerHTML = WarnalertMassage("Email or Username and paassword not matched");
   } else {
-    window.location.href = "/public/pages/dashboard.html"
+    window.location.href = "/student-data-crud/public/pages/dashboard.html"
   }
 
 })
