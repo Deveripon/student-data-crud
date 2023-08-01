@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Student Result Management System</title>
+  <link rel="stylesheet" href="../../src/css/style.css">
+  <link rel="stylesheet" href="../../src/css/custom.css">
+  <script src="https://kit.fontawesome.com/2ab099f38c.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-800 h-screen w-screen">
+
+  <div id="dashboard-main" class="flex justify-between w-full">
+    <!-- left sidebar -->
+    <div class="left-sidebar py-5 h-screen overflow-hidden w-2/12 bg-gray-800">
+      <div id="nav">
+        <ul class="flex flex-col text-white gap-3">
+
+          <li>
+            <div class="admin-area flex flex-col">
+              <img class=" w-8" src="../../images/profile.png" alt="">
+              <h4 class="name text-sm"><span>Shahadat Hussain Ripon</span></h4>
+            </div>
+
+          </li>
+          <li><a href="#"> <i class="ri-dashboard-line"></i> <span>Dashboard</span></a></li>
+          <li><a class="add-student" href="#"> <i class="ri-user-add-line"></i> <span>Add Student</span></a></li>
+          <li><a href="#" class="manage-student"> <i class="ri-sparkling-line"></i> <span>Manage Student</span></a></li>
+          <li class="separator-heading">
+            <h3 class="">Settings and Security</h3>
+          </li>
+          <li><a href="#"> <i class="ri-user-follow-line"></i> <span>Register User</span></a></li>
+          <li><a href="#"> <i class="ri-survey-line"></i> <span>Audit Logs</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- left sidebar -->
+    <!-- right side area -->
+    <div class="right-area h-screen overflow-y-auto w-10/12 bg-slate-300 ">
+      <div id="student-show-table">
+        <!-- page breadcrumb -->
+        <div class="page-breadcrumbs w-full flex justify-between text-orange-700 py-2 px-20 bg-slate-200">
+          <h2 class="text-gray-700 text-sm">Student Details</h2>
+          <h5><a class="text-gray-700 text-xs" href="#">Home</a><span class="text-gray-700 text-xs px-1">/</span><a
+              href="#" class="text-teal-500 text-xs">Manage
+              Students</a></h5>
+        </div>
+        <!-- page breadcrumb -->
+        <!-- data table contaioner -->
+        <div class="student-table-container">
+          <div
+            class="container-header flex justify-between items-center px-20 bg-slate-100 py-2 border border-sky-200 ">
+            <h2 class="text-gray-700 text-sm">Manage Students</h2>
+            <button
+              class="text-xs add-student bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
+              <i class="ri-user-add-line"></i> Add new
+              Student</button>
+          </div>
+        </div>
+        <table
+          class="w-full height-full selection:table-auto border-collapse border-spacing-2 border bg-slate-200 border-slate-500 text-gray-700 text-sm">
+          <thead class="w-full">
+            <tr class="border border-slate-600">
+              <th>#</th>
+              <th>Photo</th>
+              <th>Roll Number</th>
+              <th>Reg Number</th>
+              <th>Name</th>
+              <th>Created At</th>
+              <th>Status</th>
+              <th>Action</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody class="w-full text-center text-xs transform duration-300">
+            <tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
+              <td>1 <span class="font-extrabold text-gray-800">.</span></td>
+              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
+              <td>22003300</td>
+              <td>119965865</td>
+              <td>Shahadat Hussain Ripon</td>
+              <td>12 seconds ago</td>
+
+              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
+              <td>
+                <ul class="flex justify-center items-center action-button">
+                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
+                </ul>
+              </td>
+              <td class="bg-green-400  hover:bg-green-900 hover:text-white cursor-pointer"><i
+                  class="ri-add-circle-line"></i> Add Result
+              </td>
+            </tr>
+
+            <tr class="border transform duration-300 hover:bg-slate-400">
+              <td>2 <span class="font-extrabold text-gray-800">.</span></td>
+              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
+              <td>22003300</td>
+              <td>119965865</td>
+              <td>Shahadat Hussain Ripon</td>
+              <td>12 seconds ago</td>
+              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
+              <td>
+                <ul class="flex justify-center items-center action-button">
+                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
+                </ul>
+              </td>
+              <td class="bg-green-400  hover:bg-green-900 hover:text-white cursor-pointer"><i
+                  class="ri-add-circle-line"></i> Add Result
+              </td>
+            </tr>
+            <tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
+              <td>3 <span class="font-extrabold text-gray-800">.</span></td>
+              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
+              <td>22003300</td>
+              <td>119965865</td>
+              <td>Shahadat Hussain Ripon</td>
+              <td>12 seconds ago</td>
+              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
+              <td>
+                <ul class="flex justify-center items-center action-button">
+                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
+                </ul>
+              </td>
+              <td class="bg-orange-400 hover:bg-orange-600 hover:text-white cursor-pointer"><i
+                  class="ri-file-list-2-line"></i> View Result
+              </td>
+            </tr>
+            <tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
+              <td>4 <span class="font-extrabold text-gray-800">.</span></td>
+              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
+              <td>22003300</td>
+              <td>119965865</td>
+              <td>Shahadat Hussain Ripon</td>
+              <td>12 seconds ago</td>
+              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
+              <td>
+                <ul class="flex justify-center items-center action-button">
+                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
+                </ul>
+              </td>
+              <td class="bg-green-400  hover:bg-green-900 hover:text-white cursor-pointer"><i
+                  class="ri-add-circle-line"></i> Add Result
+              </td>
+            </tr>
+            <tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
+              <td>5 <span class="font-extrabold text-gray-800">.</span></td>
+              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
+              <td>22003300</td>
+              <td>119965865</td>
+              <td>Shahadat Hussain Ripon</td>
+              <td>12 seconds ago</td>
+              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
+              <td>
+                <ul class="flex justify-center items-center action-button">
+                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
+                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
+                </ul>
+              </td>
+              <td class="bg-green-400 hover:bg-green-900 hover:text-white cursor-pointer"><i
+                  class="ri-add-circle-line"></i> Add Result
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- data table contaioner -->
+      </div>
+
+
+      <div id="student-add-form">
+        <!-- page breadcrumb -->
+        <div class="page-breadcrumbs w-full flex justify-between text-orange-700 py-2 px-20 bg-slate-200">
+          <h2 class="text-gray-700 text-sm">New Student Register</h2>
+          <h5><a class="text-gray-700 text-xs" href="#">Home</a><span class="text-gray-700 text-xs px-1">/</span><a
+              href="#" class="text-teal-500 text-xs">Add new student</a></h5>
+        </div>
+        <!-- page breadcrumb -->
+        <!-- data table contaioner -->
+        <div class="student-table-container">
+          <div
+            class="container-header flex justify-between items-center px-20 bg-slate-100 py-2 border border-sky-200 ">
+            <h2 class="text-gray-700 text-sm">New Students</h2>
+            <button
+              class="text-xs add-student bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
+              <i class="ri-user-add-line"></i> Add new
+              Student</button>
+          </div>
+          <!-- data table contaioner -->
+
+          <div class="add-form w-full flex justify-center items-center">
+            <form action="" id="form-student-add">
+              <h4 class="mt-5">Add New Student</h4>
+              <div id="massgae-area"></div>
+              <div class="input-group my-1">
+                <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="f_name" id="fname"
+                  placeholder="First Name">
+                <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="l_name" id="lname"
+                  placeholder="Last Name">
+              </div>
+
+              <div class="input-group my-1">
+                <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="fother_name"
+                  id="fname" placeholder="Father Name">
+                <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="mother_name"
+                  id="lname" placeholder="Mother Name">
+              </div>
+
+              <div class="input-group my-1">
+                <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="date" name="dob" id="dob"
+                  placeholder="Date of birth">
+                <label class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" for="male"><input type="radio"
+                    name="gender" id="male" value="male"> Male</label>
+                <label class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" for="female"><input type="radio"
+                    name="gender" id="female" value="female"> Female</label>
+              </div>
+              <div class="input-group my-1">
+                <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="mobile"
+                  id="mobile" placeholder="Mobile Number">
+                <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type=" text" name="email" id="email"
+                  placeholder="Email Address">
+              </div>
+              <div class="input-group my-1">
+                <textarea class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="address" id="address"
+                  cols="34" rows="3" placeholder="Address"></textarea>
+              </div>
+              <select class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="course" id="course">
+                <option value="">Select Course</option>
+                <option value="mern_stack">MERN Stack Development</option>
+                <option value="mc_learn">Machine Learing with Python</option>
+                <option value="go_lang">Go Language Development</option>
+              </select>
+              <input type="text" class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm name=" image" class="my-1"
+                id="image" placeholder="Image Url">
+
+              <br>
+              <button type="submit"
+                class="text-xs mt-5 bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
+                Add Now</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <!-- right side area -->
+
+    </div>
+    <!-- students add form -->
+
+    <!-- students add form -->
+
+
+  </div>
+
+
+
+
+
+
+  <script src="../../src/js/functions.js"></script>
+  <script src="./functions.js"></script>
+  <script src="./dashboard.js"></script>
+
+
+
+</body>
+
+
+</html>
