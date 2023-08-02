@@ -12,9 +12,9 @@
 
 </head>
 
-<body class="bg-gray-800 h-screen w-screen">
+<body class="bg-gray-800 h-screen w-screen overflow-x-hidden">
 
-  <div id="dashboard-main" class="flex justify-between w-full">
+  <div id="dashboard-main" class="flex justify-between">
     <!-- left sidebar -->
     <div class="left-sidebar py-5 h-screen overflow-hidden w-2/12 bg-gray-800">
       <div id="nav">
@@ -43,10 +43,10 @@
     <div class="right-area h-screen overflow-y-auto w-10/12 bg-slate-300 ">
       <div id="student-show-table">
         <!-- page breadcrumb -->
-        <div class="page-breadcrumbs w-full flex justify-between text-orange-700 py-2 px-20 bg-slate-200">
+        <div class="page-breadcrumbs w-full  flex justify-between text-orange-700 py-2 px-20 bg-slate-200">
           <h2 class="text-gray-700 text-sm">Student Details</h2>
-          <h5><a class="text-gray-700 text-xs" href="#">Home</a><span class="text-gray-700 text-xs px-1">/</span><a
-              href="#" class="text-teal-500 text-xs">Manage
+          <h5><a class="text-gray-700 text-xs home-button" href="#">Home</a><span
+              class="text-gray-700 text-xs px-1">/</span><a href="#" class="text-teal-500 text-xs">Manage
               Students</a></h5>
         </div>
         <!-- page breadcrumb -->
@@ -61,119 +61,28 @@
               Student</button>
           </div>
         </div>
+
         <table
-          class="w-full height-full selection:table-auto border-collapse border-spacing-2 border bg-slate-200 border-slate-500 text-gray-700 text-sm">
+          class="w-full height-full table-auto border-collapse border-spacing-2 border bg-slate-200 border-slate-500 text-gray-700 text-sm">
           <thead class="w-full">
             <tr class="border border-slate-600">
+
               <th>#</th>
               <th>Photo</th>
+              <th>Name</th>
+              <th>Cousre</th>
               <th>Roll Number</th>
               <th>Reg Number</th>
-              <th>Name</th>
               <th>Created At</th>
               <th>Status</th>
               <th>Action</th>
               <th>Result</th>
             </tr>
           </thead>
-          <tbody class="w-full text-center text-xs transform duration-300">
-            <tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
-              <td>1 <span class="font-extrabold text-gray-800">.</span></td>
-              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
-              <td>22003300</td>
-              <td>119965865</td>
-              <td>Shahadat Hussain Ripon</td>
-              <td>12 seconds ago</td>
+          <tbody class="w-full text-center text-xs student-data-container transform duration-300">
 
-              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
-              <td>
-                <ul class="flex justify-center items-center action-button">
-                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
-                </ul>
-              </td>
-              <td class="bg-green-400  hover:bg-green-900 hover:text-white cursor-pointer"><i
-                  class="ri-add-circle-line"></i> Add Result
-              </td>
-            </tr>
+            <!-- dynamic student will go here -->
 
-            <tr class="border transform duration-300 hover:bg-slate-400">
-              <td>2 <span class="font-extrabold text-gray-800">.</span></td>
-              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
-              <td>22003300</td>
-              <td>119965865</td>
-              <td>Shahadat Hussain Ripon</td>
-              <td>12 seconds ago</td>
-              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
-              <td>
-                <ul class="flex justify-center items-center action-button">
-                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
-                </ul>
-              </td>
-              <td class="bg-green-400  hover:bg-green-900 hover:text-white cursor-pointer"><i
-                  class="ri-add-circle-line"></i> Add Result
-              </td>
-            </tr>
-            <tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
-              <td>3 <span class="font-extrabold text-gray-800">.</span></td>
-              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
-              <td>22003300</td>
-              <td>119965865</td>
-              <td>Shahadat Hussain Ripon</td>
-              <td>12 seconds ago</td>
-              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
-              <td>
-                <ul class="flex justify-center items-center action-button">
-                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
-                </ul>
-              </td>
-              <td class="bg-orange-400 hover:bg-orange-600 hover:text-white cursor-pointer"><i
-                  class="ri-file-list-2-line"></i> View Result
-              </td>
-            </tr>
-            <tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
-              <td>4 <span class="font-extrabold text-gray-800">.</span></td>
-              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
-              <td>22003300</td>
-              <td>119965865</td>
-              <td>Shahadat Hussain Ripon</td>
-              <td>12 seconds ago</td>
-              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
-              <td>
-                <ul class="flex justify-center items-center action-button">
-                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
-                </ul>
-              </td>
-              <td class="bg-green-400  hover:bg-green-900 hover:text-white cursor-pointer"><i
-                  class="ri-add-circle-line"></i> Add Result
-              </td>
-            </tr>
-            <tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
-              <td>5 <span class="font-extrabold text-gray-800">.</span></td>
-              <td class="pl-5"><img class="w-12" src="./../../images/profile.png" alt=""></td>
-              <td>22003300</td>
-              <td>119965865</td>
-              <td>Shahadat Hussain Ripon</td>
-              <td>12 seconds ago</td>
-              <td> <i class="fa-solid fa-circle" style="color: #1ba73e;"></i> active</td>
-              <td>
-                <ul class="flex justify-center items-center action-button">
-                  <li><i class="ri-eye-line text-green-700 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-edit-box-line text-orange-400 transform hover:text-gray-800 duration-300"></i></li>
-                  <li><i class="ri-delete-bin-2-line text-red-500 transform hover:text-gray-800 duration-300"></i></li>
-                </ul>
-              </td>
-              <td class="bg-green-400 hover:bg-green-900 hover:text-white cursor-pointer"><i
-                  class="ri-add-circle-line"></i> Add Result
-              </td>
-            </tr>
           </tbody>
         </table>
         <!-- data table contaioner -->
@@ -184,8 +93,9 @@
         <!-- page breadcrumb -->
         <div class="page-breadcrumbs w-full flex justify-between text-orange-700 py-2 px-20 bg-slate-200">
           <h2 class="text-gray-700 text-sm">New Student Register</h2>
-          <h5><a class="text-gray-700 text-xs" href="#">Home</a><span class="text-gray-700 text-xs px-1">/</span><a
-              href="#" class="text-teal-500 text-xs">Add new student</a></h5>
+          <h5><a class="text-gray-700 text-xs home-button" href="#">Home</a><span
+              class="text-gray-700 text-xs px-1">/</span><a href="#" class="text-teal-500 text-xs">Add new student</a>
+          </h5>
         </div>
         <!-- page breadcrumb -->
         <!-- data table contaioner -->
@@ -238,11 +148,11 @@
               </div>
               <select class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="course" id="course">
                 <option value="">Select Course</option>
-                <option value="mern_stack">MERN Stack Development</option>
-                <option value="mc_learn">Machine Learing with Python</option>
-                <option value="go_lang">Go Language Development</option>
+                <option value="MERN Stack Development">MERN Stack Development</option>
+                <option value="Machine Learing with Python">Machine Learing with Python</option>
+                <option value="Go Language Development">Go Language Development</option>
               </select>
-              <input type="text" class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm name=" image" class="my-1"
+              <input type="text" class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="image" class="my-1"
                 id="image" placeholder="Image Url">
 
               <br>
@@ -252,22 +162,153 @@
             </form>
           </div>
         </div>
-
       </div>
+
       <!-- right side area -->
+      <!-- <div id="delete-confirmation">
+        <div
+          class="confirm-modal text-center flex flex-col justify-center items-center border border-green-900 w-80 p-12 rounded-md bg-gray-400 ">
+          <h3 class="confirm-text mb-3 text-white text-xs font-medium">
+            Are You Sure to Delete ?
+          </h3>
+          <div class="buttons">
+            <button
+              class="py-1 confirm-button text-white text-xs font-medium rounded-sm transform duration-300 hover:bg-green-900 px-8 bg-green-700">Confirm</button>
+            <button
+              class="py-1 cancel-button text-white text-xs font-medium rounded-sm transform duration-300 px-8 bg-red-700 hover:bg-red-900 ">Cancel</button>
+          </div>
+          <!-- <div class="msg-box">
+            <img class="w-24 rounded-full border-8 border-green-500 " src="../../images/372103860_CHECK_MARK_400px.gif"
+              alt="">
+          </div> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
+      <div id="studentDataEditModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" id="closeModalBtn">&times;</span>
+          <form action="" id="student-edit-form">
+            <h4 class="mt-5">Edit Student Data</h4>
+            <div id="alert-area"></div>
+            <div class="input-group my-1">
+              <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="f_name" id="fname"
+                placeholder="First Name">
+              <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="l_name" id="lname"
+                placeholder="Last Name">
+            </div>
+
+            <div class="input-group my-1">
+              <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="fother_name"
+                id="fname" placeholder="Father Name">
+              <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="mother_name"
+                id="lname" placeholder="Mother Name">
+            </div>
+            <input type="hidden" name="studentId">
+            <div class="input-group my-1">
+              <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="date" name="dob" id="dob"
+                placeholder="Date of birth">
+              <label class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" for="male"><input type="radio"
+                  name="gender" id="male" value="male"> Male</label>
+              <label class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" for="female"><input type="radio"
+                  name="gender" id="female" value="female"> Female</label>
+            </div>
+            <div class="input-group my-1">
+              <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="mobile" id="mobile"
+                placeholder="Mobile Number">
+              <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type=" text" name="email" id="email"
+                placeholder="Email Address">
+            </div>
+            <div class="input-group my-1">
+              <textarea class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="address" id="address"
+                cols="34" rows="3" placeholder="Address"></textarea>
+            </div>
+            <select class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="course" id="course">
+              <option value="">Select Course</option>
+              <option value="MERN Stack Development">MERN Stack Development</option>
+              <option value="Machine Learing with Python">Machine Learing with Python</option>
+              <option value="Go Language Development">Go Language Development</option>
+            </select>
+            <input type="text" class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="image" class="my-1"
+              id="image" placeholder="Image Url">
+
+            <br>
+            <button type="submit"
+              class="text-xs mt-5 bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
+              Update Now</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="studentDataviewModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" id="closeModalBtn">&times;</span>
+          <!-- student profile -->
+
+          <div class="profile-top flex bg-gray-200 rounded-sm w-full py-8 ">
+            <div class="img-area">
+              <img class="w-44 rounded-sm"
+                src="https://organicagroindia.com/wp-content/uploads/2020/10/team-member-8.jpg" alt="">
+            </div>
+            <div class="bio-area">
+              <h2 class="text-purple-600 text-3xl uppercase">Shahadat hussain ripon</h2>
+              <p class="text-emerald-700 text-md">Mern Stack Developer</p>
+            </div>
+          </div>
+          <div class="personal-information bg-purple-100">
+            <h4 class="font-bold text-md text-gray-800 ml-4">Personal Information</h4>
+            <div class="info-box ml-40">
+              <div class="info-group flex ml-4 py-1">
+                <h4 class="font-medium mr-8">Name :</h4>
+                <h6>Shahadat Hussain Ripon</h6>
+              </div>
+              <div class="info-group flex ml-4 py-1">
+                <h4 class="font-medium mr-8">Father's Name :</h4>
+                <h6>Shahadat Hussain Ripon</h6>
+              </div>
+              <div class="info-group flex ml-4 py-1">
+                <h4 class="font-medium mr-8">Mothers's Name :</h4>
+                <h6>Shahadat Hussain Ripon</h6>
+              </div>
+              <div class="info-group flex ml-4 py-1">
+                <h4 class="font-medium mr-8">Father's Name :</h4>
+                <h6>Shahadat Hussain Ripon</h6>
+              </div>
+              <div class="info-group flex ml-4 py-1">
+                <h4 class="font-medium mr-8">Address :</h4>
+                <h6>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, soluta.</h6>
+              </div>
+              <div class="info-group flex ml-4 py-1">
+                <h4 class="font-medium mr-8">Roll Number :</h4>
+                <h6>112243445</h6>
+              </div>
+              <div class="info-group flex ml-4 py-1">
+                <h4 class="font-medium mr-8">Registration Number :</h4>
+                <h6>112243445</h6>
+              </div>
+              <div class="info-group flex ml-4 py-1">
+                <h4 class="font-medium mr-8"> Course :</h4>
+                <h6>Mern Stack</h6>
+              </div>
+              <div class="info-group flex ml-4 py-2">
+                <h4 class="font-medium mr-8">Date Of Birth :</h4>
+                <h6>12-04-1997</h6>
+              </div>
+              <div class="info-group flex ml-4 py-2">
+                <h4 class="font-medium mr-8">Student Status:</h4>
+                <h6>Active</h6>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- student profile -->
+        </div>
+      </div>
     </div>
-    <!-- students add form -->
-
-    <!-- students add form -->
-
-
   </div>
-
-
-
-
-
 
   <script src="../../src/js/functions.js"></script>
   <script src="./functions.js"></script>

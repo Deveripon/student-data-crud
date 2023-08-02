@@ -84,3 +84,96 @@ table>tbody>tr {
 #student-add-form {
   display: none;
 }
+
+td.no-data {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 2px;
+}
+
+.right-area {
+  position: relative;
+}
+
+/* 
+#delete-confirmation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000000d3;
+  display: none;
+
+} */
+
+/* .confirm-modal {
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  display: none;
+} */
+
+/* The modal */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black with transparency */
+}
+
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  /* Could be adjusted to your liking */
+}
+
+/* Close button in the modal */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#studentDataviewModal {
+  display: none;
+}
+
+#studentDataviewModal .modal-content {
+  background-color: #fefefe;
+  margin: 9% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  /* Could be adjusted to your liking */
+}
