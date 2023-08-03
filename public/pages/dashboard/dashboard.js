@@ -14,6 +14,8 @@ let alerta = document.getElementById("alert-area");
 const singStudentModal = document.getElementById("studentDataviewModal");
 const closeModalB = document.getElementById("closeModalB");
 const SingleContent = document.querySelector(".main-content");
+const studentResultAddModal = document.getElementById("studentResultAddModal");
+const closeResultModal = document.getElementById("closeResultModal");
 //Student Edit form modal intaraction
 // Get the modal element
 let modal = document.getElementById("studentDataEditModal");
@@ -190,8 +192,11 @@ const showData = () => {
                     </li>
                   </ul>
                 </td>
-                <td class="bg-green-400  hover:bg-green-900 hover:text-white cursor-pointer"><i
-                    class="ri-add-circle-line"></i> Add Result
+                <td style="cursor:pointer" class="bg-green-400 hover:bg-green-900 hover:text-white cursor-pointer">
+                <button onclick="addStudentResult('${
+                  student.studentId
+                }')" ><i
+                class="ri-add-circle-line"></i> Add Result</button>
                 </td>
               </tr>
       `;
@@ -375,15 +380,49 @@ function viewStudent(id) {
   SingleContent.innerHTML = singleStudentData;
 }
 
+//add student result add modal interaction
+
+const addStudentResult = (id) => {
+  studentResultAddModal.style.display = "block"
+  //get the data of the studentId
+  const lsData = getData("students")
+  const filterdData = lsData.find((item) => item.studentId === id);
+  const studentResultAddForm = document.getElementById("studentResultAddForm")
+  const name = studentResultAddForm.querySelector("input[name='name']").value = filterdData.f_name + " " + filterdData.l_name;
+  const rollNumber = studentResultAddForm.querySelector("input[name='rollNumber']").value = filterdData.rollNumber;
+  const studenId = studentResultAddForm.querySelector("input[name='studentId']").value = filterdData.studentId
+
+  //result submission
+  studentResultAddForm.onsubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const objectData = Object.fromEntries(formData.entries());
+    const updatedData = {
+      ...filterdData,
+      result: objectData
+    }
+    //find index of filterd data
+
+    const filterdDataIndex =
+
+
+  }
+
+}
+
+
+
 // Function to close the modal
 function closeModal() {
   modal.style.display = "none";
   singStudentModal.style.display = "none";
+  studentResultAddModal.style.display = "none";
 }
 
 // Event listener for closing the modal
 closeModalBtn.addEventListener("click", closeModal);
 closeModalB.addEventListener("click", closeModal);
+closeResultModal.addEventListener("click", closeModal);
 
 // Event listener to close the modal when clicking outside the modal content
 window.addEventListener("click", function (event) {

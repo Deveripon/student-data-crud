@@ -184,6 +184,7 @@
       <!-- </div> -->
       <!-- </div> -->
 
+      <!-- student data edit modal -->
       <div id="studentDataEditModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
@@ -240,6 +241,8 @@
         </div>
       </div>
 
+      <!-- student data edit modal -->
+      <!-- student data view modal -->
       <div id="studentDataviewModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
@@ -247,13 +250,79 @@
           <!-- student profile -->
 
           <div class="main-content">
-            
+
           </div>
 
 
           <!-- student profile -->
         </div>
       </div>
+      <!-- student data view modal -->
+      <!-- student result add modal -->
+      <div id="studentResultAddModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" id="closeResultModal">&times;</span>
+          <div class="main-content">
+            <div class="add-form w-full flex justify-center items-center">
+              <form action="" id="studentResultAddForm">
+                <h4 class="mt-5 font-bold text-xl mb-4">Add Student Result</h4>
+                <div id="massgae-area"></div>
+
+                <div class="input-group my-1">
+                  <label class="text-sm font-medium" for="name">Student Name :</label>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="name" id="name"
+                    value="Student Name" disabled>
+                  <label class="text-sm font-medium" for="name">Student Roll Number :</label>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="rollNumber"
+                    id="rollNumber" value="Roll Number" disabled>
+                </div>
+
+
+                <div class="input-group my-1">
+                  <label class="text-sm font-medium" for="bangla">Bangla:</label>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="bangla"
+                    id="bangla" placeholder="Enter result of Bangla">
+                  <label class="text-sm font-medium" for="english">English:</label>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="english"
+                    id="english" placeholder="Enter result of English"">
+                </div>
+
+                <div class=" input-group my-1">
+                  <label class="text-sm font-medium" for="math">Mathmatics:</label>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="math" id="math"
+                    placeholder="Enter result of Mathmatics">
+                  <label class="text-sm font-medium" for="science">Science:</label>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="science"
+                    id="science" placeholder="Enter result of Science"">
+                </div>
+
+                <div class=" input-group my-1">
+                  <label class="text-sm font-medium" for="s_science">Social Science:</label>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="s_science"
+                    id="s_science" placeholder="Enter result of Social Science">
+                  <label class="text-sm font-medium" for="religion">Religion:</label>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="religion"
+                    id="religion" placeholder="Enter result of Religion"">
+                </div>
+
+                <input type=" text" name="studentId" class="studentId" value="StudentId" hidden>
+                  <br>
+                  <button type="submit"
+                    class="text-xs mt-1 mb-16 bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
+                    Add Result</button>
+              </form>
+            </div>
+          </div>
+
+
+          <!-- student profile -->
+        </div>
+      </div>
+      <!-- student result add modal -->
+
+
+
     </div>
   </div>
 
