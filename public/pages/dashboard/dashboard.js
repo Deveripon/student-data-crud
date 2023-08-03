@@ -16,6 +16,7 @@ const closeModalB = document.getElementById("closeModalB");
 const SingleContent = document.querySelector(".main-content");
 const studentResultAddModal = document.getElementById("studentResultAddModal");
 const closeResultModal = document.getElementById("closeResultModal");
+const alertMassageArea = document.getElementById("alert-massage-area");
 //Student Edit form modal intaraction
 // Get the modal element
 let modal = document.getElementById("studentDataEditModal");
@@ -24,38 +25,48 @@ let closeModalBtn = document.getElementById("closeModalBtn");
 
 //alert close button
 function closeAlert() {
-massgaeArea.innerHTML = "";
-alerta.innerHTML = "";
+    massgaeArea.innerHTML = "";
+    alerta.innerHTML = "";
 }
 
 //show student add form
-for (let i = 0; i < addStudentButton.length; i++) { addStudentButton[i].addEventListener("click", function (e) {
-    e.preventDefault(); studentShowTable.style.display="none" ; studentAddForm.style.display="block" ; }); } //show
-    student add form for (let i=0; i < homeButton.length; i++) { homeButton[i].addEventListener("click", function (e) {
-    e.preventDefault(); studentShowTable.style.display="block" ; studentAddForm.style.display="none" ; }); } //show all
-    student list manageStudentButton.onclick=(e)=> {
+for (let i = 0; i < addStudentButton.length; i++) {
+    addStudentButton[i].addEventListener("click", function (e) {
+        e.preventDefault();
+        studentShowTable.style.display = "none";
+        studentAddForm.style.display = "block";
+    });
+} //showstudent add form
+for (let i = 0; i < homeButton.length; i++) {
+    homeButton[i].addEventListener("click", function (e) {
+        e.preventDefault();
+        studentShowTable.style.display = "block";
+        studentAddForm.style.display = "none";
+    });
+} //show allstudent list 
+manageStudentButton.onclick = (e) => {
     e.preventDefault();
     studentShowTable.style.display = "block";
     studentAddForm.style.display = "none";
-    };
+};
 
-    //submit student add form
-    StudentAddingForm.onsubmit = (e) => {
+//submit student add form
+StudentAddingForm.onsubmit = (e) => {
     e.preventDefault();
     //get form data
     let formData = new FormData(e.target);
     let objectData = Object.fromEntries(formData);
     //distructuring the object
     const {
-    f_name,
-    l_name,
-    fother_name,
-    mother_name,
-    dob,
-    email,
-    address,
-    mobile,
-    image,
+        f_name,
+        l_name,
+        fother_name,
+        mother_name,
+        dob,
+        email,
+        address,
+        mobile,
+        image,
     } = objectData;
 
     //check unique email address
@@ -75,61 +86,71 @@ for (let i = 0; i < addStudentButton.length; i++) { addStudentButton[i].addEvent
 
     //add validation
     if (
-    !f_name ||
-    !l_name ||
-    !fother_name ||
-    !mother_name ||
-    !dob ||
-    !email ||
-    !address ||
-    !mobile
+        !f_name ||
+        !l_name ||
+        !fother_name ||
+        !mother_name ||
+        !dob ||
+        !email ||
+        !address ||
+        !mobile
     ) {
-    massgaeArea.innerHTML = WarnalertMassage(
-    "All fields are required . Please fill up all fields"
-    );
+        massgaeArea.innerHTML = WarnalertMassage(
+            "All fields are required . Please fill up all fields"
+        );
     } else if (!validateEmail(email)) {
-    massgaeArea.innerHTML = WarnalertMassage("invalid email address");
+        massgaeArea.innerHTML = WarnalertMassage("invalid email address");
     } else if (!validateMobile(mobile)) {
-    massgaeArea.innerHTML = WarnalertMassage("invalid mobile number");
+        massgaeArea.innerHTML = WarnalertMassage("invalid mobile number");
     } else {
-    const studentData = {
-    ...objectData,
-    studentId: idNumber(25),
-    rollNumber: rollNumber(),
-    regNumber: regNumber(),
-    createdAt: Date.now(),
-    status: "active",
-    };
-    //send data to local storage
-    sendData("students", studentData);
-    massgaeArea.innerHTML = successalertMassage(
-    "Student data added successfully"
-    );
-    e.target.reset();
-    showData();
+        const studentData = {
+            ...objectData,
+            studentId: idNumber(25),
+            rollNumber: rollNumber(),
+            regNumber: regNumber(),
+            createdAt: Date.now(),
+            status: "active",
+        };
+        //send data to local storage
+        sendData("students", studentData);
+        massgaeArea.innerHTML = successalertMassage(
+            "Student data added successfully"
+        );
+        e.target.reset();
+        showData();
     }
-    };
+};
 
-    // data show to frontend
+// data show to frontend
 
-    const showData = () => {
+const showData = () => {
     const lsData = getData("students");
     let allStudents = "";
     if (lsData.length > 0) {
-    lsData.reverse().map((student, index) => {
-    //show time ago functionality
-    function updateTimeAgo() {
-    const createdAt = student.createdAt;
+        lsData.reverse().map((student, index) => {
+            //show time ago functionality
+            function updateTimeAgo() {
+                const createdAt = student.createdAt;
 
-    const now = new Date();
-    const timeDifference = Math.floor((now - createdAt) / 1000); // Time difference in seconds
-    let timeAgo;
+                const now = new Date();
+                const timeDifference = Math.floor((now - createdAt) / 1000); // Time difference in seconds
+                let timeAgo;
 
-    if (timeDifference < 60) { timeAgo=`${timeDifference} seconds ago`; } else if (timeDifference < 3600) {
-        timeAgo=`${Math.floor(timeDifference / 60)} minutes ago`; } else if (timeDifference < 86400) {
-        timeAgo=`${Math.floor(timeDifference / 3600)} hours ago`; } else if (timeDifference < 2592000) {
-        timeAgo=`${Math.floor(timeDifference / 86400)} days ago`; } return timeAgo; } // Update timestamps every 60
-        seconds to keep the "time ago" text accurate setInterval(updateTimeAgo, 60000); allStudents +=` <tr
+                if (timeDifference < 60) {
+                    timeAgo = `${timeDifference} seconds ago`;
+                } else if (timeDifference < 3600) {
+                    timeAgo = `${Math.floor(timeDifference / 60)} minutes ago`;
+                } else if (timeDifference < 86400) {
+                    timeAgo = `${Math.floor(timeDifference / 3600)} hours ago`;
+                } else if (timeDifference < 2592000) {
+                    timeAgo = `${Math.floor(timeDifference / 86400)} days ago`;
+                }
+                return timeAgo;
+            }
+            // Update timestamps every 60
+            // seconds to keep the "time ago" text accurate
+            setInterval(updateTimeAgo, 60000);
+            allStudents += ` <tr
         class="border transform duration-300 hover:bg-slate-400 border-sky-200">
         <td>${
             index + 1
@@ -185,68 +206,68 @@ for (let i = 0; i < addStudentButton.length; i++) { addStudentButton[i].addEvent
         `;
         });
         studentDataContainer.innerHTML = allStudents;
-        } else {
+    } else {
         studentDataContainer.innerHTML = `<tr class="border transform duration-300 hover:bg-slate-400 border-sky-200">
             <td class="px-4 py-40 text-red-400 text-2xl" colspan="10">No data Found</td>
         </tr>
         `;
-        }
-        };
-        showData();
+    }
+};
+showData();
 
-        //delete student data
-        function deleteStudent(id) {
-        let conf = confirm("Are you sure you want to delete");
-        if (conf) {
+//delete student data
+function deleteStudent(id) {
+    let conf = confirm("Are you sure you want to delete");
+    if (conf) {
         const lsData = getData("students");
         const filterdData = lsData.filter((data) => data.studentId !== id);
         localStorage.setItem("students", JSON.stringify(filterdData));
         showData();
-        }
-        }
+    }
+}
 
-        // edit student data
-        function editStudent(id) {
-        modal.style.display = "block";
-        //get the edit form inputs
-        const editForm = document.getElementById("student-edit-form");
-        const f_name = editForm.querySelector(`input[name="f_name"]`);
-        const l_name = editForm.querySelector(`input[name="l_name"]`);
-        const father_name = editForm.querySelector(`input[name="fother_name"]`);
-        const mother_name = editForm.querySelector(`input[name="mother_name"]`);
-        const dob = editForm.querySelector(`input[name="dob"]`);
-        const gender = editForm.querySelector(`input[name="gender"]`);
-        const mobile = editForm.querySelector(`input[name="mobile"]`);
-        const email = editForm.querySelector(`input[name="email"]`);
-        const address = editForm.querySelector(`textarea[name="address"]`);
-        const course = editForm.querySelector(`select[name="course"]`);
-        const studentId = editForm.querySelector(`input[name="studentId"]`);
-        const image = editForm.querySelector(`input[name="image"]`);
+// edit student data
+function editStudent(id) {
+    modal.style.display = "block";
+    //get the edit form inputs
+    const editForm = document.getElementById("student-edit-form");
+    const f_name = editForm.querySelector(`input[name="f_name"]`);
+    const l_name = editForm.querySelector(`input[name="l_name"]`);
+    const father_name = editForm.querySelector(`input[name="fother_name"]`);
+    const mother_name = editForm.querySelector(`input[name="mother_name"]`);
+    const dob = editForm.querySelector(`input[name="dob"]`);
+    const gender = editForm.querySelector(`input[name="gender"]`);
+    const mobile = editForm.querySelector(`input[name="mobile"]`);
+    const email = editForm.querySelector(`input[name="email"]`);
+    const address = editForm.querySelector(`textarea[name="address"]`);
+    const course = editForm.querySelector(`select[name="course"]`);
+    const studentId = editForm.querySelector(`input[name="studentId"]`);
+    const image = editForm.querySelector(`input[name="image"]`);
 
-        const lsData = getData("students");
-        const filterdData = lsData.find((data) => data.studentId === id);
+    const lsData = getData("students");
+    const filterdData = lsData.find((data) => data.studentId === id);
 
-        //pass data value to edit form
-        f_name.value = filterdData.f_name;
-        l_name.value = filterdData.l_name;
-        father_name.value = filterdData.fother_name;
-        mother_name.value = filterdData.mother_name;
-        dob.value = filterdData.dob;
-        mobile.value = filterdData.mobile;
-        email.value = filterdData.email;
-        address.value = filterdData.address;
-        course.value = filterdData.course;
-        studentId.value = filterdData.studentId;
-        image.value = filterdData.image;
-        //set gender selection
-        if (gender.value == filterdData.gender) {
+    //pass data value to edit form
+    f_name.value = filterdData.f_name;
+    l_name.value = filterdData.l_name;
+    father_name.value = filterdData.fother_name;
+    mother_name.value = filterdData.mother_name;
+    dob.value = filterdData.dob;
+    mobile.value = filterdData.mobile;
+    email.value = filterdData.email;
+    address.value = filterdData.address;
+    course.value = filterdData.course;
+    studentId.value = filterdData.studentId;
+    image.value = filterdData.image;
+    //set gender selection
+    if (gender.value == filterdData.gender) {
         const gender = (editForm.querySelector(
-        `input[value="${filterdData.gender}"]`
+            `input[value="${filterdData.gender}"]`
         ).checked = true);
-        }
+    }
 
-        //submit form data
-        editForm.onsubmit = (e) => {
+    //submit form data
+    editForm.onsubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const objectData = Object.fromEntries(formData.entries());
@@ -264,47 +285,47 @@ for (let i = 0; i < addStudentButton.length; i++) { addStudentButton[i].addEvent
 
         //add validation
         if (
-        !objectData.f_name ||
-        !objectData.l_name ||
-        !objectData.fother_name ||
-        !objectData.mother_name ||
-        !objectData.dob ||
-        !objectData.email ||
-        !objectData.address ||
-        !objectData.mobile
+            !objectData.f_name ||
+            !objectData.l_name ||
+            !objectData.fother_name ||
+            !objectData.mother_name ||
+            !objectData.dob ||
+            !objectData.email ||
+            !objectData.address ||
+            !objectData.mobile
         ) {
-        alerta.innerHTML = WarnalertMassage(
-        "All fields are required . Please fill up all fields"
-        );
+            alerta.innerHTML = WarnalertMassage(
+                "All fields are required . Please fill up all fields"
+            );
         } else if (!validateEmail(objectData.email)) {
-        alerta.innerHTML = WarnalertMassage("invalid email address");
+            alerta.innerHTML = WarnalertMassage("invalid email address");
         } else if (!validateMobile(objectData.mobile)) {
-        alerta.innerHTML = WarnalertMassage("invalid mobile number");
+            alerta.innerHTML = WarnalertMassage("invalid mobile number");
         } else {
-        const updatedData = {
-        ...filterdData,
-        ...objectData,
-        };
-        //find the index of edited data
-        const indexOfData = lsData.findIndex((item) => item.studentId === id);
-        lsData[indexOfData] = updatedData;
-        // send data to localStorage
-        localStorage.setItem("students", JSON.stringify(lsData));
-        alerta.innerHTML = successalertMassage("data updated successfully");
-        showData();
-        e.target.reset();
+            const updatedData = {
+                ...filterdData,
+                ...objectData,
+            };
+            //find the index of edited data
+            const indexOfData = lsData.findIndex((item) => item.studentId === id);
+            lsData[indexOfData] = updatedData;
+            // send data to localStorage
+            localStorage.setItem("students", JSON.stringify(lsData));
+            alerta.innerHTML = successalertMassage("data updated successfully");
+            showData();
+            e.target.reset();
         }
-        };
-        }
+    };
+}
 
-        //view single student data
+//view single student data
 
-        function viewStudent(id) {
-        singStudentModal.style.display = "block";
-        const lsData = getData("students");
-        const filterdData = lsData.find((item) => item.studentId === id);
+function viewStudent(id) {
+    singStudentModal.style.display = "block";
+    const lsData = getData("students");
+    const filterdData = lsData.find((item) => item.studentId === id);
 
-        let singleStudentData = `
+    let singleStudentData = `
 
         <div class="profile-top flex bg-gray-200 rounded-sm w-full py-8 ">
             <div class="img-area">
@@ -359,32 +380,32 @@ for (let i = 0; i < addStudentButton.length; i++) { addStudentButton[i].addEvent
         </div>
 
         `;
-        SingleContent.innerHTML = singleStudentData;
-        }
+    SingleContent.innerHTML = singleStudentData;
+}
 
-        //add student result add modal interaction
+//add student result add modal interaction
 
-        const addStudentResult = (id) => {
-        studentResultAddModal.style.display = "block"
-        //get the data of the studentId
-        const lsData = getData("students")
-        const filterdData = lsData.find((item) => item.studentId === id);
-        const studentResultAddForm = document.getElementById("studentResultAddForm")
-        const name = studentResultAddForm.querySelector("input[name='name']").value = filterdData.f_name + " " +
+const addStudentResult = (id) => {
+    studentResultAddModal.style.display = "block"
+    //get the data of the studentId
+    const lsData = getData("students")
+    const filterdData = lsData.find((item) => item.studentId === id);
+    const studentResultAddForm = document.getElementById("studentResultAddForm")
+    const name = studentResultAddForm.querySelector("input[name='name']").value = filterdData.f_name + " " +
         filterdData.l_name;
-        const rollNumber = studentResultAddForm.querySelector("input[name='rollNumber']").value =
+    const rollNumber = studentResultAddForm.querySelector("input[name='rollNumber']").value =
         filterdData.rollNumber;
-        const studentId = studentResultAddForm.querySelector("input[name='studentId']").value = filterdData.studentId
-        const alertMassageArea
+    const studentId = studentResultAddForm.querySelector("input[name='studentId']").value = filterdData.studentId
 
-        //result submission
-        studentResultAddForm.onsubmit = (e) => {
+
+    //result submission
+    studentResultAddForm.onsubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const objectData = Object.fromEntries(formData.entries());
         const updatedData = {
-        ...filterdData,
-        result: objectData
+            ...filterdData,
+            result: objectData
         }
         //find index of filterd data
         const filterdDataIndex = lsData.findIndex((item) => item.studentId === studentId);
@@ -392,34 +413,36 @@ for (let i = 0; i < addStudentButton.length; i++) { addStudentButton[i].addEvent
         //send data to local storage
         localStorage.setItem("students", JSON.stringify(lsData));
         showData();
-        }
+        alertMassageArea.innerHTML = successalertMassage("Result Added Success")
+        e.target.reset();
+    }
+}
 
-        }
 
 
 
+// Function to close the modal
+function closeModal() {
+    modal.style.display = "none";
+    singStudentModal.style.display = "none";
+    studentResultAddModal.style.display = "none";
+}
 
-        // Function to close the modal
-        function closeModal() {
-        modal.style.display = "none";
-        singStudentModal.style.display = "none";
-        studentResultAddModal.style.display = "none";
-        }
+// Event listener for closing the modal
+closeModalBtn.addEventListener("click", closeModal);
+closeModalB.addEventListener("click", closeModal);
+closeResultModal.addEventListener("click", closeModal);
 
-        // Event listener for closing the modal
-        closeModalBtn.addEventListener("click", closeModal);
-        closeModalB.addEventListener("click", closeModal);
-        closeResultModal.addEventListener("click", closeModal);
-
-        // Event listener to close the modal when clicking outside the modal content
-        window.addEventListener("click", function (event) {
-        if (event.target === modal) {
+// Event listener to close the modal when clicking outside the modal content
+window.addEventListener("click", function (event) {
+    if (event.target === modal) {
         closeModal();
-        }
-        });
+    }
+});
 
-        //alert close button
-        function closeAlert() {
-        alerta.innerHTML = "";
-        massgaeArea.innerHTML = "";
-        }
+//alert close button
+function closeAlert() {
+    alerta.innerHTML = "";
+    massgaeArea.innerHTML = "";
+    alertMassageArea.innerHTML = "";
+}
