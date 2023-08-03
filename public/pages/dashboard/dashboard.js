@@ -446,6 +446,66 @@ const viewResult = (id) => {
     studentResultShowModal.style.display = "block";
     const lsData = getData("students")
     const filterdData = lsData.find((item) => item.studentId === id);
+
+    //calculate the result
+
+    let gpaCal = (marks) => {
+        let gpa;
+        let grade;
+        let result;
+        if (marks >= 0 && marks < 33) {
+            gpa = 0;
+            grade = "F";
+            result = "Failed"
+        } else if (marks >= 33 && marks < 40) {
+            gpa = 1;
+            grade = "D";
+            result = "Passed"
+        } else if (marks >= 40 && marks < 50) {
+            gpa = 2;
+            grade = "C";
+            result = "Passed"
+        } else if (marks >= 50 && marks < 60) {
+            gpa = 3;
+            grade = "B";
+            result = "Passed"
+        } else if (marks >= 60 && marks < 70) {
+            gpa = 3.5;
+            grade = "A-";
+            result = "Passed"
+        } else if (marks >= 70 && marks < 80) {
+            gpa = 4;
+            grade = "A";
+            result = "Passed"
+        } else if (marks >= 80 && marks <= 100) {
+            gpa = 5;
+            grade = "A+";
+            result = "Passed"
+        }
+        return {
+            gpa: gpa,
+            grade: grade,
+            result: result
+
+        }
+    };
+
+
+
+    function getCgpa() {
+        const resultObj = filterdData.result;
+        delete resultObj.studentId
+        const resultArry = Object.values(resultObj);
+
+        let totalCgpa = 0;
+        resultArry.map((marks) => {
+            totalCgpa += parseInt(marks)
+        });
+        return totalCgpa / resultArry.length;
+
+    }
+    getCgpa();
+
     resultBox.innerHTML = `
     
     <div class="marksheet border-4 rounded-md border-green-800">
@@ -509,51 +569,59 @@ const viewResult = (id) => {
         </thead>
         <tbody class="border-1 h-8 m-auto text-center">
           <tr class="border-1 py-4 h-8 border-gray-800">
-            <td class="border-1 border-gray-600">Sl</td>
-            <td class="border-1 border-gray-600">Subject Name</td>
-            <td class="border-1 border-gray-600">Maximum Marks</td>
-            <td class="border-1 border-gray-600">Obtained Marks</td>
-            <td class="border-1 border-gray-600">GPA</td>
-            <td class="border-1 border-gray-600">GRADE</td>
+            <td class="border-1 border-gray-600">1</td>
+            <td class="border-1 border-gray-600">Bangla</td>
+            <td class="border-1 border-gray-600">100</td>
+            <td class="border-1 border-gray-600">${filterdData.result.bangla}</td>
+            <td class="border-1 border-gray-600">${gpaCal(filterdData.result.bangla).gpa}</td>
+            <td class="border-1 border-gray-600">${gpaCal(filterdData.result.bangla).grade}</td>
           </tr>
           <tr class="border-1 py-4 h-8 border-gray-800">
-            <td class="border-1 border-gray-600">Sl</td>
-            <td class="border-1 border-gray-600">Subject Name</td>
-            <td class="border-1 border-gray-600">Maximum Marks</td>
-            <td class="border-1 border-gray-600">Obtained Marks</td>
-            <td class="border-1 border-gray-600">GPA</td>
-            <td class="border-1 border-gray-600">GRADE</td>
+            <td class="border-1 border-gray-600">2</td>
+            <td class="border-1 border-gray-600">English</td>
+            <td class="border-1 border-gray-600">100</td>
+            <td class="border-1 border-gray-600">${filterdData.result.english}</td>
+            <td class="border-1 border-gray-600">${gpaCal(filterdData.result.english).gpa}</td>
+            <td class="border-1 border-gray-600">${gpaCal(filterdData.result.english).grade}</td>
           </tr>
           <tr class="border-1 py-4 h-8 border-gray-800">
-            <td class="border-1 border-gray-600">Sl</td>
-            <td class="border-1 border-gray-600">Subject Name</td>
-            <td class="border-1 border-gray-600">Maximum Marks</td>
-            <td class="border-1 border-gray-600">Obtained Marks</td>
-            <td class="border-1 border-gray-600">GPA</td>
-            <td class="border-1 border-gray-600">GRADE</td>
+          <td class="border-1 border-gray-600">3</td>
+          <td class="border-1 border-gray-600">Mathmatics</td>
+          <td class="border-1 border-gray-600">100</td>
+          <td class="border-1 border-gray-600">${filterdData.result.math}</td>
+          <td class="border-1 border-gray-600">${gpaCal(filterdData.result.math).gpa}</td>
+          <td class="border-1 border-gray-600">${gpaCal(filterdData.result.math).grade}</td>
           </tr>
           <tr class="border-1 py-4 h-8 border-gray-800">
-            <td class="border-1 border-gray-600">Sl</td>
-            <td class="border-1 border-gray-600">Subject Name</td>
-            <td class="border-1 border-gray-600">Maximum Marks</td>
-            <td class="border-1 border-gray-600">Obtained Marks</td>
-            <td class="border-1 border-gray-600">GPA</td>
-            <td class="border-1 border-gray-600">GRADE</td>
+          <td class="border-1 border-gray-600">4</td>
+          <td class="border-1 border-gray-600">Mathmatics</td>
+          <td class="border-1 border-gray-600">100</td>
+          <td class="border-1 border-gray-600">${filterdData.result.science}</td>
+          <td class="border-1 border-gray-600">${gpaCal(filterdData.result.science).gpa}</td>
+          <td class="border-1 border-gray-600">${gpaCal(filterdData.result.science).grade}</td>
           </tr>
           <tr class="border-1 py-4 h-8 border-gray-800">
-            <td class="border-1 border-gray-600">Sl</td>
-            <td class="border-1 border-gray-600">Subject Name</td>
-            <td class="border-1 border-gray-600">Maximum Marks</td>
-            <td class="border-1 border-gray-600">Obtained Marks</td>
-            <td class="border-1 border-gray-600">GPA</td>
-            <td class="border-1 border-gray-600">GRADE</td>
+          <td class="border-1 border-gray-600">5</td>
+          <td class="border-1 border-gray-600">Social Science</td>
+          <td class="border-1 border-gray-600">100</td>
+          <td class="border-1 border-gray-600">${filterdData.result.s_science}</td>
+          <td class="border-1 border-gray-600">${gpaCal(filterdData.result.s_science).gpa}</td>
+          <td class="border-1 border-gray-600">${gpaCal(filterdData.result.s_science).grade}</td>
+          </tr>
+          <tr class="border-1 py-4 h-8 border-gray-800">
+          <td class="border-1 border-gray-600">6</td>
+          <td class="border-1 border-gray-600">Religion</td>
+          <td class="border-1 border-gray-600">100</td>
+          <td class="border-1 border-gray-600">${filterdData.result.religion}</td>
+          <td class="border-1 border-gray-600">${gpaCal(filterdData.result.religion).gpa}</td>
+          <td class="border-1 border-gray-600">${gpaCal(filterdData.result.religion).grade}</td>
           </tr>
           <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
-            <td colspan="3" class="border-1 border-gray-600">CGPA : </td>
-            <td colspan="3" class="border-1 border-gray-600">GRADE : </td>
+            <td colspan="3" class="border-1 border-gray-600">CGPA : ${gpaCal(getCgpa()).gpa} </td>
+            <td colspan="3" class="border-1 border-gray-600">GRADE : ${gpaCal(getCgpa()).grade} </td>
           </tr>
           <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
-            <td colspan="6" class="border-1 text-start pl-7 border-gray-600">Result : </td>
+            <td colspan="6" class="border-1 text-start pl-7 border-gray-600">Result : ${gpaCal(getCgpa()).result}  </td>
           </tr>
         </tbody>
       </table>
