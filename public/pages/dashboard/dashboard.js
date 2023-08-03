@@ -415,8 +415,11 @@ const addStudentResult = (id) => {
         const formData = new FormData(e.target);
         const objectData = Object.fromEntries(formData.entries());
 
-        add vario
-
+        // add validation
+        if (!objectData.bangla || !objectData.english || !objectData.math || !objectData.science || !objectData.s_science || !objectData.religion) {
+            alertMassageArea.innerHTML = WarnalertMassage("All Fields are required")
+            return;
+        }
 
         const updatedData = {
             ...filterdData,
