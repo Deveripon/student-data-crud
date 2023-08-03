@@ -202,7 +202,7 @@ td.no-data {
 }
 
 #studentResultShowModal {
-  display: block;
+  display: none;
   padding-left: 10%;
 }
 

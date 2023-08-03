@@ -17,6 +17,9 @@ const SingleContent = document.querySelector(".main-content");
 const studentResultAddModal = document.getElementById("studentResultAddModal");
 const closeResultModal = document.getElementById("closeResultModal");
 const alertMassageArea = document.getElementById("alert-massage-area");
+const studentResultShowModal = document.getElementById("studentResultShowModal")
+const closeViewResultModal = document.getElementById("closeViewResultModal")
+const resultBox = document.getElementById("resultBox")
 //Student Edit form modal intaraction
 // Get the modal element
 let modal = document.getElementById("studentDataEditModal");
@@ -440,7 +443,148 @@ const addStudentResult = (id) => {
 //show single student Result 
 
 const viewResult = (id) => {
-    alert(id);
+    studentResultShowModal.style.display = "block";
+    const lsData = getData("students")
+    const filterdData = lsData.find((item) => item.studentId === id);
+    resultBox.innerHTML = `
+    
+    <div class="marksheet border-4 rounded-md border-green-800">
+    <div class="marksheet-header flex justify-center my-10 border-1 border-gray-700">
+      <img class="institute_logo w-48 h-28 object-fill" src="../../images/download.png"
+        alt="institute logo" />
+      <div class="institute-info mt-8 px-7">
+        <h2 class="text-4xl font-bold font-serif">
+          Sorobindu Pilot High School
+        </h2>
+        <p>
+          Chowrangi KachaBazar, Suihari, Dinajpur Sadar, Dinajpur
+        </p>
+        <h4 class="text-2xl font-medium">
+          Secondary School Certificate - 2023
+        </h4>
+      </div>
+      <img class="devripon_logo w-44" src="../../images/devriponlog.png" alt="devripon logo" />
+    </div>
+    <div class="student-info-area border-2 border-gray-700 py-5 w-11/12 block m-auto px-5">
+      <div class="info-group flex mt-2">
+        <h4 class="pr-4 font-medium">Student Name :</h4>
+        <p>${filterdData.f_name} ${filterdData.l_name}</p>
+      </div>
+      <div class="info-group flex mt-2">
+        <h4 class="pr-4 font-medium">Father Name :</h4>
+        <p>${filterdData.fother_name}</p>
+      </div>
+      <div class="info-group flex mt-2">
+        <h4 class="pr-4 font-medium">Mother Name :</h4>
+        <p>${filterdData.mother_name}</p>
+      </div>
+      <div class="info-group flex mt-2">
+        <h4 class="pr-4 font-medium">Roll Number :</h4>
+        <p>${filterdData.rollNumber}</p>
+      </div>
+      <div class="info-group flex mt-2">
+        <h4 class="pr-4 font-medium">Registration Number :</h4>
+        <p>${filterdData.regNumber}</p>
+      </div>
+      <div class="info-group flex mt-2">
+        <h4 class="pr-4 font-medium">Date of Birth :</h4>
+        <p>${filterdData.dob}</p>
+      </div>
+      <div class="info-group flex mt-2">
+        <h4 class="pr-4 font-medium">Academic Year :</h4>
+        <p>2023-2024</p>
+      </div>
+    </div>
+
+    <div class="result-area">
+      <table id="result-table"
+        class="w-11/12 m-auto mt-5 table-auto border-collapse border-spacing-2 border border-slate-500 text-gray-700 text-sm">
+        <thead class="border-1 border-gray-600 h-8 bg-slate-200">
+          <th class="border-1 border-gray-600">Sl</th>
+          <th class="border-1 border-gray-600">Subject Name</th>
+          <th class="border-1 border-gray-600">Maximum Marks</th>
+          <th class="border-1 border-gray-600">Obtained Marks</th>
+          <th class="border-1 border-gray-600">GPA</th>
+          <th class="border-1 border-gray-600">GRADE</th>
+        </thead>
+        <tbody class="border-1 h-8 m-auto text-center">
+          <tr class="border-1 py-4 h-8 border-gray-800">
+            <td class="border-1 border-gray-600">Sl</td>
+            <td class="border-1 border-gray-600">Subject Name</td>
+            <td class="border-1 border-gray-600">Maximum Marks</td>
+            <td class="border-1 border-gray-600">Obtained Marks</td>
+            <td class="border-1 border-gray-600">GPA</td>
+            <td class="border-1 border-gray-600">GRADE</td>
+          </tr>
+          <tr class="border-1 py-4 h-8 border-gray-800">
+            <td class="border-1 border-gray-600">Sl</td>
+            <td class="border-1 border-gray-600">Subject Name</td>
+            <td class="border-1 border-gray-600">Maximum Marks</td>
+            <td class="border-1 border-gray-600">Obtained Marks</td>
+            <td class="border-1 border-gray-600">GPA</td>
+            <td class="border-1 border-gray-600">GRADE</td>
+          </tr>
+          <tr class="border-1 py-4 h-8 border-gray-800">
+            <td class="border-1 border-gray-600">Sl</td>
+            <td class="border-1 border-gray-600">Subject Name</td>
+            <td class="border-1 border-gray-600">Maximum Marks</td>
+            <td class="border-1 border-gray-600">Obtained Marks</td>
+            <td class="border-1 border-gray-600">GPA</td>
+            <td class="border-1 border-gray-600">GRADE</td>
+          </tr>
+          <tr class="border-1 py-4 h-8 border-gray-800">
+            <td class="border-1 border-gray-600">Sl</td>
+            <td class="border-1 border-gray-600">Subject Name</td>
+            <td class="border-1 border-gray-600">Maximum Marks</td>
+            <td class="border-1 border-gray-600">Obtained Marks</td>
+            <td class="border-1 border-gray-600">GPA</td>
+            <td class="border-1 border-gray-600">GRADE</td>
+          </tr>
+          <tr class="border-1 py-4 h-8 border-gray-800">
+            <td class="border-1 border-gray-600">Sl</td>
+            <td class="border-1 border-gray-600">Subject Name</td>
+            <td class="border-1 border-gray-600">Maximum Marks</td>
+            <td class="border-1 border-gray-600">Obtained Marks</td>
+            <td class="border-1 border-gray-600">GPA</td>
+            <td class="border-1 border-gray-600">GRADE</td>
+          </tr>
+          <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
+            <td colspan="3" class="border-1 border-gray-600">CGPA : </td>
+            <td colspan="3" class="border-1 border-gray-600">GRADE : </td>
+          </tr>
+          <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
+            <td colspan="6" class="border-1 text-start pl-7 border-gray-600">Result : </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="signature-area h-60 items-center flex justify-between w-11/12 m-auto ">
+      <div class="mentor-sign mt-48 flex flex-col justify-center items-center">
+        <img src="../../images/img.png" alt="signature">
+        <p class="text-xs font-medium ">Mentor's Sign</p>
+      </div>
+      <div class="office-seal flex flex-col justify-center items-center ">
+        <img src="../../images/sorobindu_seal.png" alt="signature">
+        <p class="text-xs font-medium ">Office Seal</p>
+      </div>
+      <div class="principal-sign mt-48 flex flex-col justify-center items-center">
+        <img src="../../images/img (1).png" alt="signature">
+        <p class="text-xs font-medium ">Principal's Sign</p>
+      </div>
+    </div>
+    <div class="discalimer">
+      <p class="py-5 w-11/12 block m-auto text-xs font-medium">NB : <span class="font-normal">Lorem ipsum
+          dolor sit amet
+          consectetur, adipisicing
+          elit. Beatae at in quasi eos fugit
+          possimus doloribus quam qui iusto rerum.</span></p>
+    </div>
+
+
+  </div>
+
+    `;
+
 }
 
 
@@ -451,12 +595,14 @@ function closeModal() {
     modal.style.display = "none";
     singStudentModal.style.display = "none";
     studentResultAddModal.style.display = "none";
+    studentResultShowModal.style.display = "none";
 }
 
 // Event listener for closing the modal
 closeModalBtn.addEventListener("click", closeModal);
 closeModalB.addEventListener("click", closeModal);
 closeResultModal.addEventListener("click", closeModal);
+closeViewResultModal.addEventListener("click", closeModal);
 
 // Event listener to close the modal when clicking outside the modal content
 window.addEventListener("click", function (event) {
