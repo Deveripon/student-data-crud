@@ -2,63 +2,77 @@
 <html lang="en" class="dark">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard | Student Result Management System</title>
-  <link rel="stylesheet" href="../../src/css/style.css">
-  <link rel="stylesheet" href="../../src/css/custom.css">
+  <link rel="stylesheet" href="../../src/css/style.css" />
+  <link rel="stylesheet" href="../../src/css/custom.css" />
   <script src="https://kit.fontawesome.com/2ab099f38c.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body class="bg-gray-800 h-screen w-screen overflow-x-hidden">
-
   <div id="dashboard-main" class="flex justify-between">
     <!-- left sidebar -->
     <div class="left-sidebar py-5 h-screen overflow-hidden w-2/12 bg-gray-800">
       <div id="nav">
         <ul class="flex flex-col text-white gap-3">
-
           <li>
             <div class="admin-area flex flex-col">
-              <img class=" w-8" src="../../images/profile.png" alt="">
-              <h4 class="name text-sm"><span>Shahadat Hussain Ripon</span></h4>
+              <img class="w-8" src="../../images/profile.png" alt="" />
+              <h4 class="name text-sm">
+                <span>Shahadat Hussain Ripon</span>
+              </h4>
             </div>
-
           </li>
-          <li><a href="#"> <i class="ri-dashboard-line"></i> <span>Dashboard</span></a></li>
-          <li><a class="add-student" href="#"> <i class="ri-user-add-line"></i> <span>Add Student</span></a></li>
-          <li><a href="#" class="manage-student"> <i class="ri-sparkling-line"></i> <span>Manage Student</span></a></li>
+          <li>
+            <a href="#">
+              <i class="ri-dashboard-line"></i> <span>Dashboard</span></a>
+          </li>
+          <li>
+            <a class="add-student" href="#">
+              <i class="ri-user-add-line"></i> <span>Add Student</span></a>
+          </li>
+          <li>
+            <a href="#" class="manage-student">
+              <i class="ri-sparkling-line"></i> <span>Manage Student</span></a>
+          </li>
           <li class="separator-heading">
             <h3 class="">Settings and Security</h3>
           </li>
-          <li><a href="#"> <i class="ri-user-follow-line"></i> <span>Register User</span></a></li>
-          <li><a href="#"> <i class="ri-survey-line"></i> <span>Audit Logs</span></a></li>
+          <li>
+            <a href="#">
+              <i class="ri-user-follow-line"></i>
+              <span>Register User</span></a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="ri-survey-line"></i> <span>Audit Logs</span></a>
+          </li>
         </ul>
       </div>
     </div>
     <!-- left sidebar -->
     <!-- right side area -->
-    <div class="right-area h-screen overflow-y-auto w-10/12 bg-slate-300 ">
+    <div class="right-area h-screen overflow-y-auto w-10/12 bg-slate-300">
       <div id="student-show-table">
         <!-- page breadcrumb -->
-        <div class="page-breadcrumbs w-full  flex justify-between text-orange-700 py-2 px-20 bg-slate-200">
+        <div class="page-breadcrumbs w-full flex justify-between text-orange-700 py-2 px-20 bg-slate-200">
           <h2 class="text-gray-700 text-sm">Student Details</h2>
-          <h5><a class="text-gray-700 text-xs home-button" href="#">Home</a><span
-              class="text-gray-700 text-xs px-1">/</span><a href="#" class="text-teal-500 text-xs">Manage
-              Students</a></h5>
+          <h5>
+            <a class="text-gray-700 text-xs home-button" href="#">Home</a><span
+              class="text-gray-700 text-xs px-1">/</span><a href="#" class="text-teal-500 text-xs">Manage Students</a>
+          </h5>
         </div>
         <!-- page breadcrumb -->
         <!-- data table contaioner -->
         <div class="student-table-container">
-          <div
-            class="container-header flex justify-between items-center px-20 bg-slate-100 py-2 border border-sky-200 ">
+          <div class="container-header flex justify-between items-center px-20 bg-slate-100 py-2 border border-sky-200">
             <h2 class="text-gray-700 text-sm">Manage Students</h2>
             <button
               class="text-xs add-student bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
-              <i class="ri-user-add-line"></i> Add new
-              Student</button>
+              <i class="ri-user-add-line"></i> Add new Student
+            </button>
           </div>
         </div>
 
@@ -66,7 +80,6 @@
           class="w-full height-full table-auto border-collapse border-spacing-2 border bg-slate-200 border-slate-500 text-gray-700 text-sm">
           <thead class="w-full">
             <tr class="border border-slate-600">
-
               <th>#</th>
               <th>Photo</th>
               <th>Name</th>
@@ -80,33 +93,30 @@
             </tr>
           </thead>
           <tbody class="w-full text-center text-xs student-data-container transform duration-300">
-
             <!-- dynamic student will go here -->
-
           </tbody>
         </table>
         <!-- data table contaioner -->
       </div>
 
-
       <div id="student-add-form">
         <!-- page breadcrumb -->
         <div class="page-breadcrumbs w-full flex justify-between text-orange-700 py-2 px-20 bg-slate-200">
           <h2 class="text-gray-700 text-sm">New Student Register</h2>
-          <h5><a class="text-gray-700 text-xs home-button" href="#">Home</a><span
+          <h5>
+            <a class="text-gray-700 text-xs home-button" href="#">Home</a><span
               class="text-gray-700 text-xs px-1">/</span><a href="#" class="text-teal-500 text-xs">Add new student</a>
           </h5>
         </div>
         <!-- page breadcrumb -->
         <!-- data table contaioner -->
         <div class="student-table-container">
-          <div
-            class="container-header flex justify-between items-center px-20 bg-slate-100 py-2 border border-sky-200 ">
+          <div class="container-header flex justify-between items-center px-20 bg-slate-100 py-2 border border-sky-200">
             <h2 class="text-gray-700 text-sm">New Students</h2>
             <button
               class="text-xs add-student bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
-              <i class="ri-user-add-line"></i> Add new
-              Student</button>
+              <i class="ri-user-add-line"></i> Add new Student
+            </button>
           </div>
           <!-- data table contaioner -->
 
@@ -116,31 +126,33 @@
               <div id="massgae-area"></div>
               <div class="input-group my-1">
                 <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="f_name" id="fname"
-                  placeholder="First Name">
+                  placeholder="First Name" />
                 <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="l_name" id="lname"
-                  placeholder="Last Name">
+                  placeholder="Last Name" />
               </div>
 
               <div class="input-group my-1">
                 <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="fother_name"
-                  id="fname" placeholder="Father Name">
+                  id="fname" placeholder="Father Name" />
                 <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="mother_name"
-                  id="lname" placeholder="Mother Name">
+                  id="lname" placeholder="Mother Name" />
               </div>
 
               <div class="input-group my-1">
                 <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="date" name="dob" id="dob"
-                  placeholder="Date of birth">
+                  placeholder="Date of birth" />
                 <label class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" for="male"><input type="radio"
-                    name="gender" id="male" value="male"> Male</label>
+                    name="gender" id="male" value="male" />
+                  Male</label>
                 <label class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" for="female"><input type="radio"
-                    name="gender" id="female" value="female"> Female</label>
+                    name="gender" id="female" value="female" />
+                  Female</label>
               </div>
               <div class="input-group my-1">
                 <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="mobile"
-                  id="mobile" placeholder="Mobile Number">
+                  id="mobile" placeholder="Mobile Number" />
                 <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type=" text" name="email" id="email"
-                  placeholder="Email Address">
+                  placeholder="Email Address" />
               </div>
               <div class="input-group my-1">
                 <textarea class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="address" id="address"
@@ -148,17 +160,24 @@
               </div>
               <select class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="course" id="course">
                 <option value="">Select Course</option>
-                <option value="MERN Stack Development">MERN Stack Development</option>
-                <option value="Machine Learing with Python">Machine Learing with Python</option>
-                <option value="Go Language Development">Go Language Development</option>
+                <option value="MERN Stack Development">
+                  MERN Stack Development
+                </option>
+                <option value="Machine Learing with Python">
+                  Machine Learing with Python
+                </option>
+                <option value="Go Language Development">
+                  Go Language Development
+                </option>
               </select>
               <input type="text" class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="image" class="my-1"
-                id="image" placeholder="Image Url">
+                id="image" placeholder="Image Url" />
 
-              <br>
+              <br />
               <button type="submit"
                 class="text-xs mt-5 bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
-                Add Now</button>
+                Add Now
+              </button>
             </form>
           </div>
         </div>
@@ -194,31 +213,33 @@
             <div id="alert-area"></div>
             <div class="input-group my-1">
               <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="f_name" id="fname"
-                placeholder="First Name">
+                placeholder="First Name" />
               <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="l_name" id="lname"
-                placeholder="Last Name">
+                placeholder="Last Name" />
             </div>
 
             <div class="input-group my-1">
               <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="fother_name"
-                id="fname" placeholder="Father Name">
+                id="fname" placeholder="Father Name" />
               <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="mother_name"
-                id="lname" placeholder="Mother Name">
+                id="lname" placeholder="Mother Name" />
             </div>
-            <input type="hidden" name="studentId">
+            <input type="hidden" name="studentId" />
             <div class="input-group my-1">
               <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="date" name="dob" id="dob"
-                placeholder="Date of birth">
+                placeholder="Date of birth" />
               <label class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" for="male"><input type="radio"
-                  name="gender" id="male" value="male"> Male</label>
+                  name="gender" id="male" value="male" />
+                Male</label>
               <label class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" for="female"><input type="radio"
-                  name="gender" id="female" value="female"> Female</label>
+                  name="gender" id="female" value="female" />
+                Female</label>
             </div>
             <div class="input-group my-1">
               <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="mobile" id="mobile"
-                placeholder="Mobile Number">
+                placeholder="Mobile Number" />
               <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type=" text" name="email" id="email"
-                placeholder="Email Address">
+                placeholder="Email Address" />
             </div>
             <div class="input-group my-1">
               <textarea class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="address" id="address"
@@ -226,17 +247,24 @@
             </div>
             <select class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="course" id="course">
               <option value="">Select Course</option>
-              <option value="MERN Stack Development">MERN Stack Development</option>
-              <option value="Machine Learing with Python">Machine Learing with Python</option>
-              <option value="Go Language Development">Go Language Development</option>
+              <option value="MERN Stack Development">
+                MERN Stack Development
+              </option>
+              <option value="Machine Learing with Python">
+                Machine Learing with Python
+              </option>
+              <option value="Go Language Development">
+                Go Language Development
+              </option>
             </select>
             <input type="text" class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" name="image" class="my-1"
-              id="image" placeholder="Image Url">
+              id="image" placeholder="Image Url" />
 
-            <br>
+            <br />
             <button type="submit"
               class="text-xs mt-5 bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
-              Update Now</button>
+              Update Now
+            </button>
           </form>
         </div>
       </div>
@@ -249,10 +277,7 @@
           <span class="close" id="closeModalB">&times;</span>
           <!-- student profile -->
 
-          <div class="main-content">
-
-          </div>
-
+          <div class="main-content"></div>
 
           <!-- student profile -->
         </div>
@@ -266,73 +291,218 @@
           <div class="main-content">
             <div class="add-form w-full flex justify-center items-center">
               <form action="" id="studentResultAddForm">
-                <h4 class="mt-5 font-bold text-xl mb-4">Add Student Result</h4>
+                <h4 class="mt-5 font-bold text-xl mb-4">
+                  Add Student Result
+                </h4>
                 <div id="alert-massage-area"></div>
 
                 <div class="input-group my-1">
                   <label class="text-sm font-medium" for="name">Student Name :</label>
                   <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="name" id="name"
-                    value="Student Name" disabled>
+                    value="Student Name" disabled />
                   <label class="text-sm font-medium" for="name">Student Roll Number :</label>
                   <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="rollNumber"
-                    id="rollNumber" value="Roll Number" disabled>
+                    id="rollNumber" value="Roll Number" disabled />
                 </div>
-
 
                 <div class="input-group my-1">
                   <label class="text-sm font-medium" for="bangla">Bangla:</label>
                   <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="bangla"
-                    id="bangla" placeholder="Enter result of Bangla">
+                    id="bangla" placeholder="Enter result of Bangla" />
                   <label class="text-sm font-medium" for="english">English:</label>
-                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="english"
-                    id="english" placeholder="Enter result of English"">
-                </div>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none
+                    text-sm" type="text" name="english" id="english" placeholder="Enter result of English"">
+                  </div>
 
-                <div class=" input-group my-1">
+                  <div class=" input-group my-1">
                   <label class="text-sm font-medium" for="math">Mathmatics:</label>
                   <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="math" id="math"
-                    placeholder="Enter result of Mathmatics">
+                    placeholder="Enter result of Mathmatics" />
                   <label class="text-sm font-medium" for="science">Science:</label>
-                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="science"
-                    id="science" placeholder="Enter result of Science"">
-                </div>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none
+                    text-sm" type="text" name="science" id="science" placeholder="Enter result of Science"">
+                  </div>
 
-                <div class=" input-group my-1">
+                  <div class=" input-group my-1">
                   <label class="text-sm font-medium" for="s_science">Social Science:</label>
                   <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="s_science"
-                    id="s_science" placeholder="Enter result of Social Science">
+                    id="s_science" placeholder="Enter result of Social Science" />
                   <label class="text-sm font-medium" for="religion">Religion:</label>
-                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none text-sm" type="text" name="religion"
-                    id="religion" placeholder="Enter result of Religion"">
-                </div>
+                  <input class="bg-sky-100 py-1 px-4 rounded-sm outline-none
+                    text-sm" type="text" name="religion" id="religion" placeholder="Enter result of Religion"">
+                  </div>
 
-                <input type=" text" name="studentId" class="studentId" value="StudentId" hidden>
-                  <br>
+                  <input
+                    type=" text" name="studentId" class="studentId" value="StudentId" hidden />
+                  <br />
                   <button type="submit"
                     class="text-xs mt-1 mb-16 bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
-                    Add Result</button>
+                    Add Result
+                  </button>
               </form>
             </div>
           </div>
-
 
           <!-- student profile -->
         </div>
       </div>
       <!-- student result add modal -->
+      <!-- student result Show modal -->
+      <div id="studentResultShowModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="utlities">
+            <button
+              class="border-1 border-gray-400 p-1 hover:bg-gray-300 transform duration-300 outline outline-slate-600 text-gray-700 rounded-md">Print</button>
+            <span class="close" id="closeResultModal">&times;</span>
+          </div>
+          <div class="main-content">
+            <div class="marksheet border-4 rounded-md border-green-800">
+              <div class="marksheet-header flex justify-center my-10 border-1 border-gray-700">
+                <img class="institute_logo w-48 h-28 object-fill" src="../../images/download.png"
+                  alt="institute logo" />
+                <div class="institute-info mt-8 px-7">
+                  <h2 class="text-4xl font-bold font-serif">
+                    Sorobindu Pilot High School
+                  </h2>
+                  <p>
+                    Chowrangi KachaBazar, Suihari, Dinajpur Sadar, Dinajpur
+                  </p>
+                  <h4 class="text-2xl font-medium">
+                    Secondary School Certificate - 2023
+                  </h4>
+                </div>
+                <img class="devripon_logo w-44" src="../../images/devriponlog.png" alt="devripon logo" />
+              </div>
+              <div class="student-info-area border-2 border-gray-700 py-5 w-11/12 block m-auto px-5">
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Student Name :</h4>
+                  <p>Shahadat Hussain Ripon</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Father Name :</h4>
+                  <p>Shahadat Hussain Ripon</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Mother Name :</h4>
+                  <p>Shahadat Hussain Ripon</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Roll Number :</h4>
+                  <p>1133434245</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Registration Number :</h4>
+                  <p>1133434245</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Date of Birth :</h4>
+                  <p>1133434245</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Academic Year :</h4>
+                  <p>2023-2024</p>
+                </div>
+              </div>
+
+              <div class="result-area">
+                <table id="result-table"
+                  class="w-11/12 m-auto mt-5 table-auto border-collapse border-spacing-2 border border-slate-500 text-gray-700 text-sm">
+                  <thead class="border-1 border-gray-600 h-8 bg-slate-200">
+                    <th class="border-1 border-gray-600">Sl</th>
+                    <th class="border-1 border-gray-600">Subject Name</th>
+                    <th class="border-1 border-gray-600">Maximum Marks</th>
+                    <th class="border-1 border-gray-600">Obtained Marks</th>
+                    <th class="border-1 border-gray-600">GPA</th>
+                    <th class="border-1 border-gray-600">GRADE</th>
+                  </thead>
+                  <tbody class="border-1 h-8 m-auto text-center">
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">Sl</td>
+                      <td class="border-1 border-gray-600">Subject Name</td>
+                      <td class="border-1 border-gray-600">Maximum Marks</td>
+                      <td class="border-1 border-gray-600">Obtained Marks</td>
+                      <td class="border-1 border-gray-600">GPA</td>
+                      <td class="border-1 border-gray-600">GRADE</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">Sl</td>
+                      <td class="border-1 border-gray-600">Subject Name</td>
+                      <td class="border-1 border-gray-600">Maximum Marks</td>
+                      <td class="border-1 border-gray-600">Obtained Marks</td>
+                      <td class="border-1 border-gray-600">GPA</td>
+                      <td class="border-1 border-gray-600">GRADE</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">Sl</td>
+                      <td class="border-1 border-gray-600">Subject Name</td>
+                      <td class="border-1 border-gray-600">Maximum Marks</td>
+                      <td class="border-1 border-gray-600">Obtained Marks</td>
+                      <td class="border-1 border-gray-600">GPA</td>
+                      <td class="border-1 border-gray-600">GRADE</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">Sl</td>
+                      <td class="border-1 border-gray-600">Subject Name</td>
+                      <td class="border-1 border-gray-600">Maximum Marks</td>
+                      <td class="border-1 border-gray-600">Obtained Marks</td>
+                      <td class="border-1 border-gray-600">GPA</td>
+                      <td class="border-1 border-gray-600">GRADE</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">Sl</td>
+                      <td class="border-1 border-gray-600">Subject Name</td>
+                      <td class="border-1 border-gray-600">Maximum Marks</td>
+                      <td class="border-1 border-gray-600">Obtained Marks</td>
+                      <td class="border-1 border-gray-600">GPA</td>
+                      <td class="border-1 border-gray-600">GRADE</td>
+                    </tr>
+                    <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
+                      <td colspan="3" class="border-1 border-gray-600">CGPA : </td>
+                      <td colspan="3" class="border-1 border-gray-600">GRADE : </td>
+                    </tr>
+                    <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
+                      <td colspan="6" class="border-1 text-start pl-7 border-gray-600">Result : </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="signature-area h-60 items-center flex justify-between w-11/12 m-auto ">
+                <div class="mentor-sign mt-48 flex flex-col justify-center items-center">
+                  <img src="../../images/img.png" alt="signature">
+                  <p class="text-xs font-medium ">Mentor's Sign</p>
+                </div>
+                <div class="office-seal flex flex-col justify-center items-center ">
+                  <img src="../../images/sorobindu_seal.png" alt="signature">
+                  <p class="text-xs font-medium ">Office Seal</p>
+                </div>
+                <div class="principal-sign mt-48 flex flex-col justify-center items-center">
+                  <img src="../../images/img (1).png" alt="signature">
+                  <p class="text-xs font-medium ">Principal's Sign</p>
+                </div>
+              </div>
+              <div class="discalimer">
+                <p class="py-5 w-11/12 block m-auto text-xs font-medium">NB : <span class="font-normal">Lorem ipsum
+                    dolor sit amet
+                    consectetur, adipisicing
+                    elit. Beatae at in quasi eos fugit
+                    possimus doloribus quam qui iusto rerum.</span></p>
+              </div>
 
 
+            </div>
+          </div>
 
+          <!-- student profile -->
+        </div>
+      </div>
+      <!-- student result Show modal -->
     </div>
   </div>
 
   <script src="../../src/js/functions.js"></script>
   <script src="./functions.js"></script>
   <script src="./dashboard.js"></script>
-
-
-
 </body>
-
 
 </html>

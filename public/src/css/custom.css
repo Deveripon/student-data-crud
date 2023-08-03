@@ -98,6 +98,15 @@ td.no-data {
   position: relative;
 }
 
+#result-table td,
+#result-table th {
+  border: 2px solid #000;
+}
+
+#result-table tr {
+  height: 50px;
+}
+
 /* 
 #delete-confirmation {
   position: absolute;
@@ -189,5 +198,20 @@ td.no-data {
   padding: 20px;
   border: 1px solid #888;
   width: 60%;
+  /* Could be adjusted to your liking */
+}
+
+#studentResultShowModal {
+  display: block;
+  padding-left: 10%;
+}
+
+#studentResultShowModal .modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
   /* Could be adjusted to your liking */
 }
