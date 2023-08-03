@@ -73,19 +73,19 @@ StudentAddingForm.onsubmit = (e) => {
     } = objectData;
 
     //check unique email address
-    /* if (uniqueEmail(email)) {
-    massgaeArea.innerHTML = WarnalertMassage(
-    "This email adress already exists"
-    );
-    return;
+    if (uniqueEmail(email)) {
+        massgaeArea.innerHTML = WarnalertMassage(
+            "This email adress already exists"
+        );
+        return;
     }
     // check unique mobile number
     if (uniqueMobile(mobile)) {
-    massgaeArea.innerHTML = WarnalertMassage(
-    "This mobile number already exists"
-    );
-    return;
-    } */
+        massgaeArea.innerHTML = WarnalertMassage(
+            "This mobile number already exists"
+        );
+        return;
+    }
 
     //add validation
     if (

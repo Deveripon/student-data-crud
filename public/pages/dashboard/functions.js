@@ -33,21 +33,21 @@ const idNumber = (length) => {
 
 
 
-// //check email address
-// const uniqueEmail = (email) => {
-//   const allData = getData("students");
-//   if (allData) {
-//     const filterdEmail = allData.some((data) => email === data.email);
-//     return filterdEmail;
-//   }
-// }
+//check email address
+const uniqueEmail = (email) => {
+  const allData = getData("students");
+  if (allData) {
+    const filterdEmail = allData.some((data) => email === data.email);
+    return filterdEmail;
+  }
+}
 
 
-// //check mobile address
-// const uniqueMobile = (mobile) => {
-//   const allData = getData("students");
-//   if (allData) {
-//     const filterdMobile = allData.some((data) => mobile === data.mobile);
-//     return filterdMobile;
-//   }
-// }
+//check mobile address
+const uniqueMobile = (mobile) => {
+  const allData = getData("students");
+  if (allData) {
+    const filterdMobile = allData.some((data) => mobile === data.mobile);
+    return filterdMobile;
+  }
+}
