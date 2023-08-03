@@ -199,7 +199,7 @@ const showData = () => {
         ${student.result?
         ` <td style="cursor:pointer" class=" bg-green-400 hover:bg-green-900 text-white font-medium cursor-pointer">
             <button 
-            onclick="viewResult ('${
+            onclick="viewResult('${
               student.studentId
             }')">
             <i class="ri-eye-line"></i>View Result</button>
@@ -436,6 +436,12 @@ const addStudentResult = (id) => {
     }
 }
 
+
+//show single student Result 
+
+const viewResult = (id) => {
+    alert(id);
+}
 
 
 
