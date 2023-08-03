@@ -196,12 +196,23 @@ const showData = () => {
                 </li>
             </ul>
         </td>
-        <td style="cursor:pointer" class="bg-green-400 hover:bg-green-900 hover:text-white cursor-pointer">
-            <button onclick="addStudentResult('${
-                  student.studentId
-                }')"><i
-                    class="ri-add-circle-line"></i> Add Result</button>
-        </td>
+        ${student.result?
+        ` <td style="cursor:pointer" class=" bg-green-400 hover:bg-green-900 text-white font-medium cursor-pointer">
+            <button 
+            onclick="viewResult ('${
+              student.studentId
+            }')">
+            <i class="ri-eye-line"></i>View Result</button>
+        </td>`:
+     ` <td style="cursor:pointer" class=" bg-orange-400 hover:bg-orange-600 hover:text-white cursor-pointer">
+          <button 
+          onclick="addStudentResult('${
+          student.studentId
+        }')">
+        <i class="ri-add-circle-line"></i> Add Result</button>
+     </td>`}
+       
+
         </tr>
         `;
         });
@@ -403,6 +414,10 @@ const addStudentResult = (id) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const objectData = Object.fromEntries(formData.entries());
+
+        add vario
+
+
         const updatedData = {
             ...filterdData,
             result: objectData
@@ -417,6 +432,7 @@ const addStudentResult = (id) => {
         e.target.reset();
     }
 }
+
 
 
 
