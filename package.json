@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tailwindcss -i ./public/src/tailwindInput/tailwind.css -o ./public/src/css/style.css --watch",
     "post-css": "npx tailwindcss -i ./public/src/tailwindInput/tailwind.css -o ./public/src/css/style.css --watch",
-    "sass": "node-sass --watch ./public/src/scss/main.scss ./public/src/css/custom.css --output-style compressed"
+    "sass": "node-sass --watch ./public/src/scss/main.scss ./public/src/css/main.css --output-style compressed"
   },
   "keywords": [],
   "author": "",
