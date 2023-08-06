@@ -200,7 +200,7 @@ const showData = () => {
             </ul>
         </td>
         ${student.result?
-        ` <td style="cursor:pointer" class=" bg-green-400 hover:bg-green-900 text-white font-medium cursor-pointer">
+        ` <td style="cursor:pointer" class=" bg-green-800 hover:bg-green-900 text-white font-medium cursor-pointer">
             <button 
             onclick="viewResult('${
               student.studentId
@@ -617,11 +617,11 @@ const viewResult = (id) => {
           <td class="border-1 border-gray-600">${gpaCal(filterdData.result.religion).grade}</td>
           </tr>
           <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
-            <td colspan="3" class="border-1 border-gray-600">CGPA : ${gpaCal(getCgpa()).gpa} </td>
-            <td colspan="3" class="border-1 border-gray-600">GRADE : ${gpaCal(getCgpa()).grade} </td>
+            <td colspan="3" class="border-1 border-gray-600 bg-blue-300 text-white">CGPA : ${gpaCal(getCgpa()).gpa} </td>
+            <td colspan="3" class="border-1 border-gray-600 bg-blue-300 text-white">GRADE : ${gpaCal(getCgpa()).grade} </td>
           </tr>
           <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
-            <td colspan="6" class="border-1 text-start pl-7 border-gray-600">Result : ${gpaCal(getCgpa()).result}  </td>
+            <td colspan="6" class="border-1 text-start text-white pl-7 bg-blue-400 border-blue-500">Result : ${gpaCal(getCgpa()).result}  </td>
           </tr>
         </tbody>
       </table>
