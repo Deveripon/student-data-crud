@@ -20,6 +20,15 @@ const alertMassageArea = document.getElementById("alert-massage-area");
 const studentResultShowModal = document.getElementById("studentResultShowModal")
 const closeViewResultModal = document.getElementById("closeViewResultModal")
 const resultBox = document.getElementById("resultBox")
+const resultSearchPage = document.getElementById("result-search-page")
+const leftSideBar = document.querySelector(".left-sidebar")
+const rightSidebar = document.querySelector(".right-area")
+const resultSearch = document.getElementById("resultSearch")
+const searchForm = document.getElementById("search-form")
+const StudentMarkSheet = document.getElementById("studentMarksheetShowModal")
+const closeMarksheetModal = document.getElementById("closeMarksheetModal")
+const markSheetBox = document.getElementById("markSheetBox")
+const msggBox = document.querySelector("msgg-box")
 //Student Edit form modal intaraction
 // Get the modal element
 let modal = document.getElementById("studentDataEditModal");
@@ -655,6 +664,245 @@ const viewResult = (id) => {
 
 }
 
+function showResultPage() {
+    leftSideBar.style.display = "none";
+    rightSidebar.style.display = "none";
+    resultSearchPage.style.display = "block"
+
+}
+
+function showDashBoard() {
+    leftSideBar.style.display = "block";
+    rightSidebar.style.display = "block";
+    resultSearchPage.style.display = "none";
+    studentAddForm.style.display = "none";
+    studentShowTable.style.display = "block";
+
+}
+
+// Show Student Marksheet
+searchForm.onsubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const objectData = Object.fromEntries(formData.entries())
+    const lsData = getData("students");
+    const filterdData = lsData.find((data) => data.rollNumber == objectData.roll_number && data.regNumber == objectData.reg_number);
+
+    //calculate the result
+
+    let gpaCal = (marks) => {
+        let gpa;
+        let grade;
+        let result;
+        if (marks >= 0 && marks < 33) {
+            gpa = 0;
+            grade = "F";
+            result = "Failed"
+        } else if (marks >= 33 && marks < 40) {
+            gpa = 1;
+            grade = "D";
+            result = "Passed"
+        } else if (marks >= 40 && marks < 50) {
+            gpa = 2;
+            grade = "C";
+            result = "Passed"
+        } else if (marks >= 50 && marks < 60) {
+            gpa = 3;
+            grade = "B";
+            result = "Passed"
+        } else if (marks >= 60 && marks < 70) {
+            gpa = 3.5;
+            grade = "A-";
+            result = "Passed"
+        } else if (marks >= 70 && marks < 80) {
+            gpa = 4;
+            grade = "A";
+            result = "Passed"
+        } else if (marks >= 80 && marks <= 100) {
+            gpa = 5;
+            grade = "A+";
+            result = "Passed"
+        }
+        return {
+            gpa: gpa,
+            grade: grade,
+            result: result
+
+        }
+    };
+
+
+
+    function getCgpa() {
+        const resultObj = filterdData.result;
+        delete resultObj.studentId
+        const resultArry = Object.values(resultObj);
+
+        let totalCgpa = 0;
+        resultArry.map((marks) => {
+            totalCgpa += parseInt(marks)
+        });
+        return totalCgpa / resultArry.length;
+
+    }
+    getCgpa();
+
+    if (filterdData) {
+        StudentMarkSheet.style.display = "block";
+        markSheetBox.innerHTML = `
+        <div class="marksheet border-4 rounded-md border-green-800">
+              <div class="marksheet-header flex justify-center my-10 border-1 border-gray-700">
+                <img class="institute_logo w-48 h-28 object-fill" src="../../images/download.png"
+                  alt="institute logo" />
+                <div class="institute-info mt-8 px-7">
+                  <h2 class="text-4xl font-bold font-serif">
+                    Sorobindu Pilot High School
+                  </h2>
+                  <p>
+                    Chowrangi KachaBazar, Suihari, Dinajpur Sadar, Dinajpur
+                  </p>
+                  <h4 class="text-2xl font-medium">
+                    Secondary School Certificate - 2023
+                  </h4>
+                </div>
+                <img class="devripon_logo w-44" src="../../images/devriponlog.png" alt="devripon logo" />
+              </div>
+              <div class="student-info-area border-2 border-gray-700 py-5 w-11/12 block m-auto px-5">
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Student Name :</h4>
+                  <p>${filterdData.f_name} ${filterdData.l_name}</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Father Name :</h4>
+                  <p>${filterdData.fother_name}</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Mother Name :</h4>
+                  <p>${filterdData.mother_name}</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Roll Number :</h4>
+                  <p>${filterdData.rollNumber}</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Registration Number :</h4>
+                  <p>${filterdData.regNumber}</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Date of Birth :</h4>
+                  <p>${filterdData.dob}</p>
+                </div>
+                <div class="info-group flex mt-2">
+                  <h4 class="pr-4 font-medium">Academic Year :</h4>
+                  <p>2023-2024</p>
+                </div>
+              </div>
+
+              <div class="result-area">
+                <table id="result-table"
+                  class="w-11/12 m-auto mt-5 table-auto border-collapse border-spacing-2 border border-slate-500 text-gray-700 text-sm">
+                  <thead class="border-1 border-gray-600 h-8 bg-slate-200">
+                    <th class="border-1 border-gray-600">Sl</th>
+                    <th class="border-1 border-gray-600">Subject Name</th>
+                    <th class="border-1 border-gray-600">Maximum Marks</th>
+                    <th class="border-1 border-gray-600">Obtained Marks</th>
+                    <th class="border-1 border-gray-600">GPA</th>
+                    <th class="border-1 border-gray-600">GRADE</th>
+                  </thead>
+                  <tbody class="border-1 h-8 m-auto text-center">
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">1</td>
+                      <td class="border-1 border-gray-600">Bangla</td>
+                      <td class="border-1 border-gray-600">100</td>
+                      <td class="border-1 border-gray-600">${filterdData.result.bangla}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.bangla).gpa}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.bangla).grade}</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">2</td>
+                      <td class="border-1 border-gray-600">English</td>
+                      <td class="border-1 border-gray-600">100</td>
+                      <td class="border-1 border-gray-600">${filterdData.result.english}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.english).gpa}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.english).grade}</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">3</td>
+                      <td class="border-1 border-gray-600">Mathmatics</td>
+                      <td class="border-1 border-gray-600">100</td>
+                      <td class="border-1 border-gray-600">${filterdData.result.math}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.math).gpa}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.math).grade}</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">4</td>
+                      <td class="border-1 border-gray-600">Mathmatics</td>
+                      <td class="border-1 border-gray-600">100</td>
+                      <td class="border-1 border-gray-600">${filterdData.result.science}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.science).gpa}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.science).grade}</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">5</td>
+                      <td class="border-1 border-gray-600">Social Science</td>
+                      <td class="border-1 border-gray-600">100</td>
+                      <td class="border-1 border-gray-600">${filterdData.result.s_science}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.s_science).gpa}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.s_science).grade}</td>
+                    </tr>
+                    <tr class="border-1 py-4 h-8 border-gray-800">
+                      <td class="border-1 border-gray-600">6</td>
+                      <td class="border-1 border-gray-600">Religion</td>
+                      <td class="border-1 border-gray-600">100</td>
+                      <td class="border-1 border-gray-600">${filterdData.result.religion}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.religion).gpa}</td>
+                      <td class="border-1 border-gray-600">${gpaCal(filterdData.result.religion).grade}</td>
+                    </tr>
+                    <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
+                      <td colspan="3" class="border-1 border-gray-600 bg-blue-300 text-white">CGPA :
+                        ${gpaCal(getCgpa()).gpa} </td>
+                      <td colspan="3" class="border-1 border-gray-600 bg-blue-300 text-white">GRADE :
+                        ${gpaCal(getCgpa()).grade} </td>
+                    </tr>
+                    <tr class="border-1 bg-teal-100 py-4 h-8 border-gray-800">
+                      <td colspan="6" class="border-1 text-start text-white pl-7 bg-blue-400 border-blue-500">Result
+                        :
+                        ${gpaCal(getCgpa()).result} </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="signature-area h-60 items-center flex justify-between w-11/12 m-auto ">
+                <div class="mentor-sign mt-48 flex flex-col justify-center items-center">
+                  <img src="../../images/img.png" alt="signature">
+                  <p class="text-xs font-medium ">Mentor's Sign</p>
+                </div>
+                <div class="office-seal flex flex-col justify-center items-center ">
+                  <img src="../../images/sorobindu_seal.png" alt="signature">
+                  <p class="text-xs font-medium ">Office Seal</p>
+                </div>
+                <div class="principal-sign mt-48 flex flex-col justify-center items-center">
+                  <img src="../../images/img (1).png" alt="signature">
+                  <p class="text-xs font-medium ">Principal's Sign</p>
+                </div>
+              </div>
+              <div class="discalimer">
+                <p class="py-5 w-11/12 block m-auto text-xs font-medium">NB : <span class="font-normal">Lorem ipsum
+                    dolor sit amet
+                    consectetur, adipisicing
+                    elit. Beatae at in quasi eos fugit
+                    possimus doloribus quam qui iusto rerum.</span></p>
+              </div>
+
+
+            </div>
+        `;
+    }
+
+};
+
+
+
 
 
 
@@ -664,6 +912,7 @@ function closeModal() {
     singStudentModal.style.display = "none";
     studentResultAddModal.style.display = "none";
     studentResultShowModal.style.display = "none";
+    StudentMarkSheet.style.display = "none";
 }
 
 // Event listener for closing the modal
@@ -671,6 +920,7 @@ closeModalBtn.addEventListener("click", closeModal);
 closeModalB.addEventListener("click", closeModal);
 closeResultModal.addEventListener("click", closeModal);
 closeViewResultModal.addEventListener("click", closeModal);
+closeMarksheetModal.addEventListener("click", closeModal);
 
 // Event listener to close the modal when clicking outside the modal content
 window.addEventListener("click", function (event) {

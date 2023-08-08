@@ -70,10 +70,16 @@
         <div class="student-table-container">
           <div class="container-header flex justify-between items-center px-20 bg-slate-100 py-2 border border-sky-200">
             <h2 class="text-gray-700 text-sm">Manage Students</h2>
-            <button
-              class="text-xs add-student bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
-              <i class="ri-user-add-line"></i> Add new Student
-            </button>
+            <div class="right">
+              <button onclick="showResultPage();"
+                class="text-xs add-student bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
+                <i class="ri-search-2-line"></i> Search Result
+              </button>
+              <button
+                class="text-xs add-student bg-teal-500 text-white py-2 px-5 rounded-sm font-medium transform hover:bg-teal-700 duration-300">
+                <i class="ri-user-add-line"></i> Add new Student
+              </button>
+            </div>
           </div>
         </div>
 
@@ -366,7 +372,64 @@
       </div>
       <!-- student result Show modal -->
     </div>
+
+    <!-- Result Search PAGE -->
+    <div id="result-search-page" class="w-screen h-screen overflow-x-hidden hidden bg-sky-100 pt-20">
+      <div class="header m-auto text-center mb-8 flex justify-between px-12 ">
+        <h4 class=" text-2xl text-teal-800">Search Student Result</h4>
+        <button onclick="showDashBoard();"
+          class="bg-teal-500 py-2 px-6 text-white rounded-sm hover:bg-teal-700 transform duration-300 ">Back</button>
+      </div>
+      <div class="divider w-full h-0.5 mb-6 bg-gray-300"></div>
+
+      <div class="search-box bg-slate-200 w-3/12 p-12 rounded-md m-auto border border-teal-500">
+        <form action="" id="search-form">
+          <div class="msgg-box"></div>
+          <div class="form-group flex flex-col">
+            <label for="roll" class="mb-2">Roll Number</label>
+            <input type="text" name="roll_number" placeholder="Roll Number"
+              class="outline-none p-2 border border-gray-600 rounded-md focus:ring-1 ring-fuchsia-800">
+          </div>
+          <div class="form-group flex flex-col mt-3">
+            <label for="roll" class="mb-2">Registration Number</label>
+            <input type="text" name="reg_number" placeholder="Registration Number"
+              class="outline-none p-2 border border-gray-600 rounded-md focus:ring-1 ring-fuchsia-800">
+          </div>
+          <div class="form-group w-full mt-3">
+            <input type="submit" id="resultSearch" value="Search Result"
+              class="outline-none p-2 border border-gray-600 rounded-md hover:bg-green-900 transform duration-300 hover:text-white cursor-pointer focus:ring-1 ring-fuchsia-800">
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Student Marksheet -->
+    </div>
+    <!-- Result Search PAGE -->
+    <div class="student-marksheet-section">
+      <div id="studentMarksheetShowModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="utlities">
+            <button
+              class="border-1 border-gray-400 p-1 hover:bg-gray-300 transform duration-300 outline outline-slate-600 text-gray-700 rounded-md ">Print</button>
+            <span class="close" id="closeMarksheetModal">&times;</span>
+          </div>
+          <div class="main-content" id="markSheetBox">
+
+          </div>
+
+          <!-- student profile -->
+        </div>
+      </div>
+    </div>
+
+
+
+
+
   </div>
+
 
   <script src="../../src/js/functions.js"></script>
   <script src="./functions.js"></script>

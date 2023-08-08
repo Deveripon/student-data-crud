@@ -212,6 +212,20 @@ td.no-data {
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 70%;
+  width: 75%;
+  /* Could be adjusted to your liking */
+}
+
+#studentMarksheetShowModal {
+  display: none;
+}
+
+#studentMarksheetShowModal .modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
   /* Could be adjusted to your liking */
 }
